@@ -7,7 +7,7 @@ function Step4() {
             <div className="container min-w-full center pt-48 relative flex flex-col justify-center items-center">
                 <h1>Top up your wallet</h1>
                 <p style={{ color: 'grey' }}
-                    className='mt-2'>Add money to your gifting wallet through your credit card to gift your employees</p>
+                    className='mt-2 w-1/3'>Add money to your gifting wallet through your credit card to gift your employees</p>
             </div>
             <div>
                 <p style={{

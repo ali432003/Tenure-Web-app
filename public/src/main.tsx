@@ -11,6 +11,9 @@ import Step1 from './pages/OnBoarding/Step1.tsx';
 import Step2 from './pages/OnBoarding/Step2.tsx';
 import Step3 from './pages/OnBoarding/Step3.tsx';
 import Step4 from './pages/OnBoarding/Step4.tsx';
+import Step4_dc from './pages/OnBoarding/Step4_dc.tsx';
+import Step4_sucess from './pages/OnBoarding/Step4_sucess.tsx';
+
 
 const router = createBrowserRouter([
   {
@@ -35,7 +38,7 @@ const router = createBrowserRouter([
   },
   {
     path: '/OnBoarding',
-    element:  [<Step1 />,<Step2/>,<Step3/>,<Step4/>],
+    element:  [<Step1 />,<Step2/>,<Step3/>,<Step4/>,<Step4_sucess/>,<Step4_dc/>],
     
   },
 ]);
