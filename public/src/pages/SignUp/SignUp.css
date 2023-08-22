@@ -1,0 +1,25 @@
+li{
+    list-style: initial;
+    color:rgb(56 133 123 /1) ;
+    list-style: initial;
+    text-align: left;
+}
+ul{
+    /* display: flex; */
+    list-style-position: inside;
+}
+li::marker{
+    color:rgb(56 133 123 /1);
+    font-size: x-large;
+}
+/* .input-selected {
+    border: 1px solid rgb(56 133 123 /1); 
+  } */
+  /* h3{
+    color: rgb(90 120 148 /1);
+  } */
+  .button:hover{
+    outline: 2px solid white;
+    outline-offset: -4px;
+    /* border-width: 4px; */
+  }
