@@ -14,29 +14,26 @@ function ForgetPassword() {
             <div>
                 <a href="/Login"><img src="src/assets/icons/arrow_left.svg" alt="" className='mt-5 text-primary-500' /></a>
             </div>
-            <div className="container min-w-full center pt-48 relative flex flex-col justify-center items-center">
-                <img className="w-72 phone:w-24 tablet:w-32" src="src/assets/icons/password.svg" alt="" />
+            <div className="container min-w-full center pt-18 relative flex flex-col justify-center items-center">
+                <img className="w-72" src="src/assets/images/lock.png" alt="" />
                 <h2 className='mt-5 mb-3'>Forgot password?</h2>
                 <p style={{
                     color: 'grey'
                 }}>Enter Your email below and we'll get you back into your account</p>
             </div>
-            <div className='container min-w-full center pt-2 relative flex flex-col justify-center items-center'>
-                <div className='email  mt-5'>
-                    <input type="email"
-                        placeholder='Enter your email'
-                        style={{
-                            width: '150%',
-                            marginLeft:'2rem',
-                            transform:'translateX(-6rem)'
-                        }}
-                        className='border-2 rounded-lg border-solid border-gray-300' />
+            <div className="container min-w-full center pt-9 relative flex flex-col justify-center items-center">
+                <div className='w-1/2'>
+                    <div className='block'>
+                        <input type="email"
+                            placeholder='Enter your email'
+                            className="mb-5 form-input px-4 py-3 w-full border-2 rounded-lg border-solid border-gray-300 focus:border-gray-400 ring-gray-400 visible peer ...  peer-invalid:border-danger-500 focus: border-danger-500" />
+                    </div>
+                    <div className="">
+                        <Button type="submit" className="button-primary-lg  button mt-1 mb-3" style={{ borderRadius: '10px'}}>
+                            Set Budget
+                        </Button>
+                    </div>
                 </div>
-                
-                    <Button type="submit" className="button-primary-lg center button" style={{ borderRadius: '10px', backgroundColor: "rgb(56 133 123 /1)",width:"30%",marginTop:"1rem" }}>
-                        Submit
-                    </Button>
-                
                 <div className="container min-w-full center relative flex flex-col justify-center items-center mt-5">
                     <blockquote className="body-text-medium blockquote-form text-gray-500">
                         Back to
