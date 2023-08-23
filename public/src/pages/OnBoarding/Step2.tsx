@@ -1,6 +1,6 @@
 import React,{useEffect} from 'react'
 import Button from '../../components/Button/Button'
-import {Formik,Form, FieldArray,Field} from 'formik'
+import {Formik,Form, FieldArray,Field, ErrorMessage} from 'formik'
 import * as yup from 'yup';
 
 const initialValues = {
@@ -10,8 +10,10 @@ const initialValues = {
   const validationSchema = yup.object().shape({
     employees: yup.array().of(
       yup.object().shape({
-        name: yup.string().required('Name is required'),
-        role: yup.string().required('Role is required'),
+        name: yup.string().required('This Field is required'),
+        email: yup.string().required('This Field is required').email('Not a valid email'),
+        birthday: yup.date().required('This Field is required'),
+        location: yup.string().required('This Field is required').min(3)
       })
     ),
   });
@@ -66,7 +68,9 @@ function Step2() {
 
 //     </Formik>
 // )
-
+function onSubmit(values:any) {
+    console.log(values)
+}
 
 
     return (
@@ -98,9 +102,7 @@ function Step2() {
             initialValues
         }
         validationSchema={validationSchema}
-        onSubmit={(values,actions)=>{
-            console.log(values)
-        }}>
+        onSubmit={onSubmit}>
     {({values})=>(
 
                  <Form className='w-1/2' method='Post' >
@@ -113,46 +115,50 @@ function Step2() {
                             return (
                                 <> 
                             <div key={index}>
-                    <label className="block">
+                    <label className="block mb-5 text-left">
                         <Field
                             key={`${index}-name`}
                             id={`employees.${index}.name`}
                             name={`employees.${index}.name`}
                             type="text"
                             placeholder="Enter Employee name"
-                            className="mb-5 form-input px-4 py-3 w-full border-2 rounded-lg border-solid border-gray-300 focus:border-gray-400 ring-gray-400 visible peer ...  peer-invalid:border-danger-500 focus: border-danger-500"
+                            className="mb-1 form-input px-4 py-3 w-full border-2 rounded-lg border-solid border-gray-300 focus:border-gray-400 ring-gray-400 visible peer ...  peer-invalid:border-danger-500 focus: border-danger-500"
                         />
+                    <ErrorMessage name={`employees.${index}.name`} className='text-red-700' style={{color:"red"}} />
                     </label>
-                    <label className="block">
+                    <label className="block mb-5 text-left">
                         <Field
                             key={`${index}-email`}
                             id={`employees.${index}.email`}
                             name={`employees.${index}.email`}                        
                             type="email"
                             placeholder="Enter Employee email"
-                            className="mb-5 form-input px-4 py-3 w-full border-2 rounded-lg border-solid border-gray-300 focus:border-gray-400 ring-gray-400 visible peer ...  peer-invalid:border-danger-500 focus: border-danger-500"
+                            className="mb-1 form-input px-4 py-3 w-full border-2 rounded-lg border-solid border-gray-300 focus:border-gray-400 ring-gray-400 visible peer ...  peer-invalid:border-danger-500 focus: border-danger-500"
                         />
+                    <ErrorMessage name={`employees.${index}.email`} className='text-red-700' />
                     </label>
-                    <label className="block">
+                    <label className="block mb-5 text-left">
                         <Field
                             key={`${index}-birthday`}
                             id={`employees.${index}.birthday`}
                             name={`employees.${index}.birthday`} 
                             type="date"
                             placeholder="Enter Employee birth date"
-                            className="mb-5 form-input px-4 py-3 w-full border-2 rounded-lg border-solid border-gray-300 focus:border-gray-400 ring-gray-400 visible peer ...  peer-invalid:border-danger-500 focus: border-danger-500"
+                            className="mb-1 form-input px-4 py-3 w-full border-2 rounded-lg border-solid border-gray-300 focus:border-gray-400 ring-gray-400 visible peer ...  peer-invalid:border-danger-500 focus: border-danger-500"
                         />
+                    <ErrorMessage name={`employees.${index}.birthday`} className='text-red-700 ' />
                     </label>
-                    <label className="block">
+                    <label className="block mb-5 text-left">
                         <Field
                             key={`${index}-location`}
                             id={`employees.${index}.location`}
                             name={`employees.${index}.location`}                         
                             type="search"
                             placeholder="Enter Employee location"
-                            className="mb-5 form-input px-4 py-3 w-full border-2 rounded-lg border-solid border-gray-300 focus:border-gray-400 ring-gray-400 visible peer ...  peer-invalid:border-danger-500 focus: border-danger-500" 
+                            className="mb-1 form-input px-4 py-3 w-full border-2 rounded-lg border-solid border-gray-300 focus:border-gray-400 ring-gray-400 visible peer ...  peer-invalid:border-danger-500 focus: border-danger-500" 
                         />
                         <img src="src/assets/icons/search.svg" alt="" className='absolute' style={{right:"26%",transform:"translateY(-3.6rem)"}} />
+                    <ErrorMessage name={`employees.${index}.location`} className='text-red-700 '/>
                     </label>
                     </div>
 
@@ -187,7 +193,8 @@ function Step2() {
             
                     <div className="">
                         <Button type="submit" className="button-primary-lg button mt-5 mb-9" style={{ borderRadius: '10px',backgroundColor: "rgb(56 133 123 /1)"}}>
-                          <a href="/OnBoarding3">Send Invite</a>  
+                          {/* <a href="/OnBoarding3">Send Invite</a>   */}
+                          Send Invite
                         </Button>
                     </div>
                 </Form> 
