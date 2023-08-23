@@ -34,15 +34,15 @@ function Step4() {
                         placeholder='Card holder number'
                         className="mb-5 form-input px-4 py-3 w-full border-2 rounded-lg border-solid border-gray-300 focus:border-gray-400 ring-gray-400 visible peer ...  peer-invalid:border-danger-500 focus: border-danger-500" />
                     </label>
-                    <label >
+                    <label className="flex gap-4" >
                         <input type="text"
                         placeholder='Expiration Date'
-                        style={{marginRight:'20rem'}}
+                        // style={{marginRight:'20rem'}}
                         className=" mb-5 form-input px-4 py-3 w-1/2 border-2 rounded-lg border-solid border-gray-300 focus:border-gray-400 ring-gray-400 visible peer ...  peer-invalid:border-danger-500 focus: border-danger-500" />
                         <input type="text"
                         placeholder='CVV'
-                        style={{position:'absolute',right:'24.8%'}}
-                        className=" mb-5 form-input px-4 py-3 w-1/4 border-2 rounded-lg border-solid border-gray-300 focus:border-gray-400 ring-gray-400 visible peer ...  peer-invalid:border-danger-500 focus: border-danger-500" />
+                        // style={{position:'absolute',right:'24.8%'}}
+                        className=" mb-5 form-input px-4 py-3 w-1/2 border-2 rounded-lg border-solid border-gray-300 focus:border-gray-400 ring-gray-400 visible peer ...  peer-invalid:border-danger-500 focus: border-danger-500" />
                     </label>
                     <label className='block'>
                         <input type="text"
@@ -56,7 +56,7 @@ function Step4() {
                     </div>
                     <div className='flex justify-between'>
                         <span className='text-lg font-semibold align-bottom cursor-pointer' style={{color:"rgb(56 133 123 /1)"}}>
-                        <a href="/OnBoarding1"><img src="src/assets/icons/chevron_left.svg" alt="" style={{maxWidth:"fit-conteny",display:"inline"}} /> Previous</a>
+                        <a href="/OnBoarding1"><img src="src/assets/icons/chevron_left.svg" alt="" style={{maxWidth:"fit-content",display:"inline",transform:'translateY(-4px)'}} /> Previous</a>
                             
                         </span>
                         <span className='text-lg font-semibold cursor-pointer' style={{color:"rgb(56 133 123 /1)",textAlign:"right"}}>

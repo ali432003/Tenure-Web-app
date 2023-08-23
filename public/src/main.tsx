@@ -37,9 +37,20 @@ const router = createBrowserRouter([
     element:  <Forgetpassword />,
   },
   {
-    path: '/OnBoarding',
-    element:  [<Step1 />,<Step2/>,<Step3/>,<Step4/>,<Step4_sucess/>,<Step4_dc/>],
-    
+    path: '/OnBoarding1',
+    element:  [<Step1 />],
+  },
+  {
+    path:'/OnBoarding2',
+    element: <Step2/>
+  },
+  {
+    path:'/OnBoarding3',
+    element: <Step3/>
+  },
+  {
+    path:'/OnBoarding4',
+    element: [<Step4/>,<Step4_sucess/>,<Step4_dc/>]
   },
 ]);
 

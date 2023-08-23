@@ -32,7 +32,7 @@ function Step4_dc() {
           </div>
           <div className='flex justify-between'>
             <span className='text-lg font-semibold align-bottom cursor-pointer' style={{ color: "rgb(56 133 123 /1)" }}>
-              <a href="/OnBoarding1"><img src="src/assets/icons/chevron_left.svg" alt="" style={{ maxWidth: "fit-conteny", display: "inline" }} /> Previous</a>
+              <a href="/OnBoarding1"><img src="src/assets/icons/chevron_left.svg" alt="" style={{ maxWidth: "fit-conteny", display: "inline",transform:'translateY(-4px)' }} /> Previous</a>
 
             </span>
             <span className='text-lg font-semibold cursor-pointer' style={{ color: "rgb(56 133 123 /1)", textAlign: "right" }}>
