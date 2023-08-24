@@ -8,6 +8,28 @@ interface FormSignUp {
   password: string;
 }
 
+const validationSchema = yup.object().shape({
+  email: yup.string().email('Email invalid').required('email is required.'),
+  password: yup
+    .string()
+    .required('Password is required')
+    .min(8, 'Password must be at least 8 characters')
+    .test('has-lowercase', 'Password must have at least one lowercase character', (value) =>
+      /[a-z]/.test(value)
+    )
+    .test('has-uppercase', 'Password must have at least one uppercase character', (value) =>
+      /[A-Z]/.test(value)
+    )
+    .test('has-number', 'Password must have at least one number', (value) => /\d/.test(value))
+    .test(
+      'has-special-character',
+      'Password must have at least one special character',
+      (value) => /[!@#$%^&*]/.test(value)
+    ),
+});
+
+
+
 export default function SignUp() {
   // const [email, setEmail] = useState('');
   // const [password, setPassword] = useState('');
@@ -15,21 +37,10 @@ export default function SignUp() {
 
   const passwordPattern = /^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,20}$/;
 
-  // const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-  //   event.preventDefault();
-  //   setPassword(event.target.value);
-  // };
 
   const togglePassword = () => {
     setTypePassword(prevType => prevType === 'password' ? 'text' : 'password');
-    //event.preventDefault();
-    // if (typePassword === 'password') {
-    //   setTypePassword('text');
-    //   return;
-    // } else {
-    //   setTypePassword('password');
-    //   return;
-    // }
+
   };
 
   const validatePassword = (password: string) =>{
@@ -47,14 +58,12 @@ export default function SignUp() {
       email: '',
       password: '',
     },
-    validationSchema: yup.object().shape({
-      email: yup.string().email('Email invalid').required('email is required.'),
-      password: yup.string().required('Your email or password is incorrect.'),
-    }),
+    validationSchema: validationSchema,
     onSubmit: (values) => {
       alert(JSON.stringify(values, null, 2));
     },
   });
+  console.log(formik.errors.password)
   return (
     <div className="bg-gray-50 grid grid-cols-1">
       <div className="container min-w-full center pt-48 relative flex flex-col justify-center items-center">
@@ -62,6 +71,7 @@ export default function SignUp() {
         <h2 className="flex flex-col center largest-text text-gray-500">Create an account</h2>
       </div>
       <div className="container min-w-full center pt-10 relative flex flex-col justify-center items-center">
+       
         <form onSubmit={formik.handleSubmit}>
           <label className="block">
             <input
@@ -111,18 +121,19 @@ export default function SignUp() {
             <div style={{display:"flex",justifyContent:"space-evenly"}}>
               <div>
                 <ul>
-              <li>8 characters minimum</li>
-              <li>1 lowercase</li>
-              <li>1 uppercase</li>
+              <li className= {`${formik.errors.password == "min error" ?"text-danger-500":""}`} >8 characters minimum</li>
+              <li className= {`${formik.errors.password == "lower case error" ?"text-danger-500":""}`}>1 lowercase</li>
+              <li className= {`${formik.errors.password == "upper case error" ?"text-danger-500":""}`} >1 uppercase</li>
               </ul>
               </div>
               <div>
                 <ul>
-              <li>1 special character</li>
-              <li>1 number</li>
+              <li className= {`${formik.errors.password == "special character error" ?"text-danger-500":""}`} >1 special character</li>
+              <li className= {`${formik.errors.password == "number error" ?"text-danger-500":""}`} >1 number</li>
               </ul>
               </div>
             </div>
+
           </div>
           <div className="px-5">
             <Button type="submit" className="button-primary-lg center button" style={{borderRadius:'10px', backgroundColor:"rgb(56 133 123 /1)"}}>

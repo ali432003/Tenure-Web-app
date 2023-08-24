@@ -59,9 +59,9 @@ export default function Login() {
               value={formik.values.email}
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
+              style={{ border: formik.touched.email && formik.errors.email ? '1px solid red' : '' }}
               placeholder="Enter your email"
               className="mb-2 form-input px-4 py-3 w-96 border-2 rounded-lg border-solid border-gray-300 focus:border-gray-400 ring-gray-400 visible peer ...  peer-invalid:border-danger-500 focus: border-danger-500"
-              style={{ border: formik.touched.email && formik.errors.email ? '1px solid red' : '' }}
             />
           </label>
           <div className='mb-4'>

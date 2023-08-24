@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState } from 'react';
-
+import { useFormik } from 'formik';
 import * as yup from 'yup';
 import Button from '../../components/Button/Button';
 
@@ -8,6 +8,17 @@ import Button from '../../components/Button/Button';
 
 function ForgetPassword() {
 
+    const formik = useFormik({
+        initialValues: {
+          email: '',
+        },
+        validationSchema: yup.object().shape({
+          email: yup.string().email('Email invalid').required('Your email is required'),
+        }),
+        onSubmit: (values) => {
+          console.log(JSON.stringify(values, null, 2));
+        },
+      });
     return (
 
         <div className="bg-gray-50 grid grid-cols-1">
@@ -22,20 +33,30 @@ function ForgetPassword() {
                 }}>Enter Your email below and we'll get you back into your account</p>
             </div>
             <div className='container min-w-full center pt-2 relative flex flex-col justify-center items-center'>
-                <div className='email  mt-5'>
-                    <input type="email"
-                        placeholder='Enter your email'
-                        style={{
-                            width: '150%',
-                            marginLeft:'2rem',
-                            transform:'translateX(-6rem)'
-                        }}
-                        className='border-2 rounded-lg border-solid border-gray-300' />
-                </div>
-                
-                    <Button type="submit" className="button-primary-lg center button" style={{ borderRadius: '10px', backgroundColor: "rgb(56 133 123 /1)",width:"30%",marginTop:"1rem" }}>
-                        Submit
-                    </Button>
+            <form onSubmit={formik.handleSubmit} >
+          <label className="block mt-5">
+            <input
+              type="email"
+              name="email"
+              value={formik.values.email}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              placeholder="Enter your email"
+              className="mb-2 form-input px-4 py-3 w-96 border-2 rounded-lg border-solid border-gray-300 focus:border-gray-400 ring-gray-400 visible peer ...  peer-invalid:border-danger-500 focus: border-danger-500"
+              style={{ border: formik.touched.email && formik.errors.email ? '1px solid red' : '' }}
+            />
+          </label>
+          <div className='mb-4'>
+          {formik.touched.email && formik.errors.email ? (
+              <div className="text-start  mb-4 peer-invalid:visible text-danger-500 text-sm">{formik.errors.email}</div>
+            ) : null}
+          </div>
+          <div className="px-5">
+            <Button type="submit" className="button-primary-lg center button"  style={{borderRadius:'10px', backgroundColor:"rgb(56 133 123 /1)"}}>
+              Submit
+            </Button>
+          </div>
+            </form>
                 
                 <div className="container min-w-full center relative flex flex-col justify-center items-center mt-5">
                     <blockquote className="body-text-medium blockquote-form text-gray-500">
