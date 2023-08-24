@@ -43,9 +43,9 @@ function ForgetPassword() {
                     </blockquote>
                 </div>
 
-                {/* <a href="/OnBoarding">
-                    <span className="relative font-semibold text-primary-500"> OnBoarding step 1</span>
-                </a> */}
+                <a href="/OnBoarding">
+                    <span className="relative font-semibold text-primary-500"> OnBoarding</span>
+                </a>
             </div>
 
         </div>

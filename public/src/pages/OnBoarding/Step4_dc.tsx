@@ -34,7 +34,7 @@ function Step4_dc() {
 
             </span>
             <span className='text-lg font-semibold cursor-pointer' style={{ color: "rgb(56 133 123 /1)", textAlign: "right" }}>
-              Top Up Wallet
+              <a href="/Dashboard">Top Up Wallet</a>
             </span>
           </div>
         </div>

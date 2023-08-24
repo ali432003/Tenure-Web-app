@@ -2,6 +2,7 @@ import React from 'react'
 import Button from '../../components/Button/Button'
 
 
+
 function Step1() {
     return (
         <div className="bg-gray-50 grid grid-cols-1">
@@ -55,11 +56,11 @@ function Step1() {
                                 <option value="">Select an option</option>
                                 <optgroup>
                                     <option id='opt' value="">1-20</option>
-                                    <option id='opt' value="">21-40</option>
-                                    <option id='opt' value="">41-60</option>
-                                    <option id='opt' value="">61-80</option>
-                                    <option id='opt' value="">81-99</option>
-                                    <option id='opt' value="">100+</option>
+                                    <option id='op' value="">21-40</option>
+                                    <option id='op' value="">41-60</option>
+                                    <option id='op' value="">61-80</option>
+                                    <option id='op' value="">81-99</option>
+                                    <option id='op' value="">100+</option>
                                 </optgroup>
                             </select>
                         </div>
