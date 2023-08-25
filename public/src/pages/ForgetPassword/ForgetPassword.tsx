@@ -25,8 +25,8 @@ function ForgetPassword() {
             <div>
                 <a href="/Login"><img src="src/assets/icons/arrow_left.svg" alt="" className='mt-5 text-primary-500' /></a>
             </div>
-            <div className="container min-w-full center pt-48 relative flex flex-col justify-center items-center">
-                <img className="w-72 phone:w-24 tablet:w-32" src="src/assets/icons/password.svg" alt="" />
+            <div className="container min-w-full center pt-18 relative flex flex-col justify-center items-center">
+                <img className="w-72" src="src/assets/images/lock.png" alt="" />
                 <h2 className='mt-5 mb-3'>Forgot password?</h2>
                 <p style={{
                     color: 'grey'

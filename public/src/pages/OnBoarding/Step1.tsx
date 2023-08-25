@@ -4,6 +4,7 @@ import * as yup from 'yup';
 import { Field, useFormik } from 'formik';
 import { useNavigate } from 'react-router-dom';
 
+
 function Step1() {
 const [validation, setValidation] = useState(false)
 

@@ -18,10 +18,8 @@ function Step4_dc() {
           className='mt-5'>Step 4/4</p>
       </div>
       <div className="container min-w-full center pt-9 relative flex flex-col justify-center items-center">
-        <img src="src/assets/icons/cards_1.svg" width={'250px'} height={'40px'}></img>
-        {/* <img src="src/assets/images/chain-round.jpg" width={'70px'} style={{
-          position:'absolute', top:'70%',left:'55%',filter:'brightness(90%)'
-        }}></img> */}
+        <img src="src/assets/images/card.jpeg" className='w-80'></img>
+        
       </div>
       <div className="container min-w-full center pt-9 relative flex flex-col justify-center items-center">
         <div className='w-1/2'>
@@ -36,7 +34,7 @@ function Step4_dc() {
 
             </span>
             <span className='text-lg font-semibold cursor-pointer' style={{ color: "rgb(56 133 123 /1)", textAlign: "right" }}>
-              Top Up Wallet
+              <a href="/Dashboard">Top Up Wallet</a>
             </span>
           </div>
         </div>

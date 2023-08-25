@@ -22,7 +22,7 @@ function Step4_sucess() {
                     <img src="src/assets/icons/check_filled_1.svg" width={'250px'} style={{
                         padding: '16%', marginLeft: '29%'
                     }} alt="" />
-                    <div style={{transform:'translateY(-261%)'}}>
+                    <div style={{ transform: 'translateY(-261%)' }}>
                         <span className='text-lg font-semibold cursor-pointer '
                             style={{ color: "rgb(56 133 123 /1)" }}>
                             Wallet sucessfully topped up
