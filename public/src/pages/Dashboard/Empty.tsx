@@ -12,7 +12,7 @@ function Empty() {
             <Slidebar />
             <div className='w-5/6'>
                 {/* main div */}
-                <div className='flex items-center justify-between text-start ms-5 mt-5'>
+                <div className='flex items-center justify-between text-start ms-9 mt-5'>
                     <h1>Welcome, Jon</h1>
                 </div>
                 <div className='mt-5'>
@@ -44,13 +44,13 @@ function Empty() {
                     <Box title="Total round-ups value" img="arrow_up.svg" valueT = "$1,520" valueL = "$1,520" avg='round-ups' h6='Total no of transection'/>
                     <Box title="Total cash-back value" img="cash_back.svg" valueT = "$1,520" valueL = "$1,520" avg="cash-back" h6='Total no of transection'/>
                 </div>
-                <div className='mt-5 ms-5'>
+                <div className='items-center justify-between text-start ms-9 mt-5'>
                     {/* ... your active offers section ... */}
                     <h4 className='text-start'>
                         Active offers
                     </h4>
-                    <div className='mt-3'>
-                        <p style={{ color: 'grey', padding: '5%' }}>There is no active offers at this time</p>
+                    <div className='text-center my-12'>
+                        <p style={{ color: 'grey'}}>There is no active offers at this time</p>
                     </div>
                 </div>
             </div>

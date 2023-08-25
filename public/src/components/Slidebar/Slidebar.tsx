@@ -10,7 +10,7 @@ function Slidebar() {
                     <h1 >Tenure</h1>
                 </a>
             </div>
-            <div style={{ marginTop: '50%' }}>
+            <div style={{marginTop:'60%'}}>
                 <div className='pb-1'>
                     <a href="" className='text-white font-semibold text-center text-lg p-3 transition-colors flex items-center ms-4'>
                         <img src="src/assets/icons/logo_icon_small_1.svg" className='mr-1' alt="" />
