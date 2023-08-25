@@ -1,13 +1,13 @@
 import React from 'react'
-import { useState } from 'react';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 import Button from '../../components/Button/Button';
+import { useNavigate } from 'react-router-dom';
 
 
 
 function ForgetPassword() {
-
+  const navigate = useNavigate();
     const formik = useFormik({
         initialValues: {
           email: '',
@@ -16,7 +16,7 @@ function ForgetPassword() {
           email: yup.string().email('Email invalid').required('Your email is required'),
         }),
         onSubmit: (values) => {
-          console.log(JSON.stringify(values, null, 2));
+          navigate('/EmailSent')
         },
       });
     return (
@@ -33,7 +33,7 @@ function ForgetPassword() {
                 }}>Enter Your email below and we'll get you back into your account</p>
             </div>
             <div className='container min-w-full center pt-2 relative flex flex-col justify-center items-center'>
-            <form onSubmit={formik.handleSubmit} >
+            <form className="w-1/2" onSubmit={formik.handleSubmit} >
           <label className="block mt-5">
             <input
               type="email"
@@ -42,7 +42,7 @@ function ForgetPassword() {
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               placeholder="Enter your email"
-              className="mb-2 form-input px-4 py-3 w-96 border-2 rounded-lg border-solid border-gray-300 focus:border-gray-400 ring-gray-400 visible peer ...  peer-invalid:border-danger-500 focus: border-danger-500"
+              className="mb-2 form-input px-4 py-3 w-full border-2 rounded-lg border-solid border-gray-300 focus:border-gray-400 ring-gray-400 visible peer ...  peer-invalid:border-danger-500 focus: border-danger-500"
               style={{ border: formik.touched.email && formik.errors.email ? '1px solid red' : '' }}
             />
           </label>
@@ -51,7 +51,7 @@ function ForgetPassword() {
               <div className="text-start  mb-4 peer-invalid:visible text-danger-500 text-sm">{formik.errors.email}</div>
             ) : null}
           </div>
-          <div className="px-5">
+          <div className="">
             <Button type="submit" className="button-primary-lg center button"  style={{borderRadius:'10px', backgroundColor:"rgb(56 133 123 /1)"}}>
               Submit
             </Button>

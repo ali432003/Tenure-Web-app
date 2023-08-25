@@ -22,7 +22,7 @@ function Email_sent() {
                     
                     <div className="">
                         <Button type="submit" className="button-primary-lg  button mb-2" style={{ borderRadius: '10px'}}>
-                            Login
+                         <a href="/ResetPassword">Set New Password ?</a>   
                         </Button>
                     </div>
                 </div>

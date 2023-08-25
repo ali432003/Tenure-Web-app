@@ -7,6 +7,7 @@ import Home from './pages/Home/Home.tsx';
 import SignUp from './pages/SignUp/SignUp.tsx';
 import Login from './pages/Login/Login.tsx';
 import Forgetpassword from './pages/ForgetPassword/ForgetPassword.tsx';
+import ResetPassword from './pages/ForgetPassword/ResetPassword.tsx';
 import Sucess from './pages/ForgetPassword/Sucess.tsx';
 import Email_sent from './pages/ForgetPassword/Email_sent.tsx';
 import Step1 from './pages/OnBoarding/Step1.tsx';
@@ -38,9 +39,24 @@ const router = createBrowserRouter([
     element:  <Login />,
   },
   {
-    path: '/Forgetpassword',
-    element:  [<Forgetpassword />,<Sucess/>,<Email_sent/>],
+    path: '/ForgetPassword',
+    element:  <Forgetpassword />,
   },
+  {
+    path: '/EmailSent',
+    element:  <Email_sent/>,
+  },
+  {
+    path: '/ResetPassword',
+    element:  <ResetPassword/>,
+  },
+  {
+    path: '/RasswordResetSuccess',
+    element:  <Sucess/>,
+  },
+
+
+
   {
     path: '/OnBoarding1',
     element:  [<Step1 />],
