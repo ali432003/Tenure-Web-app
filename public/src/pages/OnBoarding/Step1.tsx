@@ -2,11 +2,12 @@ import React,{useState} from 'react';
 import Button from '../../components/Button/Button';
 import * as yup from 'yup';
 import { Field, useFormik } from 'formik';
+import { useNavigate } from 'react-router-dom';
 
 function Step1() {
 const [validation, setValidation] = useState(false)
 
-
+const navigate = useNavigate();
   const formik = useFormik({
     initialValues: {
       fullName: '',
@@ -21,7 +22,8 @@ const [validation, setValidation] = useState(false)
       options: yup.string().required('This field is required'),
     }),
     onSubmit: (values) => {
-      console.log(JSON.stringify(values, null, 2));
+      //console.log(JSON.stringify(values, null, 2));
+      navigate('/OnBoarding2')
     },
   });
 
@@ -183,12 +185,12 @@ const [validation, setValidation] = useState(false)
                   Next &nbsp;<img src="src/assets/icons/chevron_right.svg" style={{ filter: 'brightness(300%)' }} alt="right_arrow"></img>
                 </span>
               
-              {
+              {/* {
                 Object.keys(formik.errors).length == 0 && 
                 <a href="/OnBoarding2" className="contents">
                 Next &nbsp;<img src="src/assets/icons/chevron_right.svg" style={{ filter: 'brightness(300%)' }} alt="right_arrow"></img>
               </a>
-              }
+              } */}
               {/* {Object.keys(formik.errors).length > 0 ? (
                 <span className="contents">
                   Next &nbsp;<img src="src/assets/icons/chevron_right.svg" style={{ filter: 'brightness(300%)' }} alt="right_arrow"></img>

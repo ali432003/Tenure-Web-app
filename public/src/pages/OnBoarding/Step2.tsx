@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Button from '../../components/Button/Button';
 import { Formik, Form, FieldArray, Field, ErrorMessage } from 'formik';
 import * as yup from 'yup';
-
+import { useNavigate } from 'react-router-dom';
 const initialValues = {
   employees: [{ name: '', email: '', birthday: '', location: '' }],
 };
@@ -64,9 +64,10 @@ function Step2() {
 
   //     </Formik>
   // )
+  const navigate = useNavigate();
   const [submitted, setSubmitted] = useState(false);
   function onSubmit(values: any) {
-    console.log(values);
+    navigate('/OnBoarding3')
   }
   type PushFunctionType = (obj: any) => void;
   type PopFunctionType = () => void;
@@ -232,7 +233,11 @@ function Step2() {
                     style={{ borderRadius: '10px', backgroundColor: 'rgb(56 133 123 /1)' }}
                     onClick={() => setSubmitted(true)} // Update state when button is clicked
                   >
-                    {submitted ? (
+               <span className="contents">
+                  Next &nbsp;<img src="src/assets/icons/chevron_right.svg" style={{ filter: 'brightness(300%)' }} alt="right_arrow"></img>
+                </span>
+              
+                    {/* {submitted ? (
                       <a href="/OnBoarding2" className="contents">
                         Send Invite
                         <img
@@ -250,7 +255,7 @@ function Step2() {
                           alt="right_arrow"
                         />
                       </span>
-                    )}
+                    )} */}
                   </Button>
                 </div>
               </Form>

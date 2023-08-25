@@ -2,7 +2,9 @@ import React from 'react';
 import Button from '../../components/Button/Button';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
+import { useNavigate } from 'react-router-dom';
 function Step3() {
+  const navigate = useNavigate();
   const formik = useFormik({
     initialValues: {
       amount: '',
@@ -19,7 +21,7 @@ function Step3() {
         }),
     }),
     onSubmit: (values) => {
-      console.log(JSON.stringify(values, null, 2));
+      navigate('/OnBoarding4')
     },
   });
   return (
@@ -76,15 +78,19 @@ function Step3() {
               className="button-primary-lg  button mt-7 "
               style={{ borderRadius: '10px', backgroundColor: 'rgb(56 133 123 /1)' }}
             >
-              {Object.keys(formik.errors).length > 0 ? (
-                <span className="contents">
-                  Set Budget
+               <span className="contents">
+                  Next &nbsp;<img src="src/assets/icons/chevron_right.svg" style={{ filter: 'brightness(300%)' }} alt="right_arrow"></img>
                 </span>
-              ) : (
-                <a href="/OnBoarding4" className="contents">
-                  Set Budget
-                </a>
-              )}
+
+              {/* {Object.keys(formik.errors).length > 0 ? (
+              <span className="contents">
+                Set Budget
+              </span>
+            ) : (
+              <a href="/OnBoarding4" className="contents">
+                Set Budget
+              </a>
+            )} */}
             </Button>
           </div>
           <div className="flex justify-between">
