@@ -31,7 +31,7 @@ export default function Employees() {
                     </div>
                     
                 </div>
-                <div className='flex mt-4'>
+                <div className='flex mt-10'>
                     <a href="" className='mx-2 blinck'>All categories</a>
                     <a href="" style={{color:'#8AAEC9'}} className='mx-2'>Food</a>
                     <a href="" style={{color:'#8AAEC9'}} className='mx-2'>Travel</a>
