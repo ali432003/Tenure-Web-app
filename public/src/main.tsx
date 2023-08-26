@@ -17,7 +17,7 @@ import Step4_dc from './pages/OnBoarding/Step4_dc.tsx';
 import Step4_sucess from './pages/OnBoarding/Step4_sucess.tsx';
 import Step4_error from './pages/OnBoarding/Step4_error.tsx';
 import Empty from './pages/Dashboard/Empty.tsx';
-import Employees from './pages/Employees/employees.tsx';
+import Employees from './pages/Employees/Employees.tsx';
 
 
 
