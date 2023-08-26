@@ -2,6 +2,7 @@ import React from 'react'
 import Slidebar from '../../../components/Slidebar/Slidebar'
 import Button from '../../../components/Button/Button'
 import  EmTableRowsP from '../../../components/EmTableRows/EmTableRowsP'
+import './Purchase.css'
 
 
 export default function Employees() {
@@ -30,7 +31,14 @@ export default function Employees() {
                     </div>
                     
                 </div>
-                <div className='mt-10'>
+                <div className='flex mt-4'>
+                    <a href="" className='mx-2 blinck'>All categories</a>
+                    <a href="" style={{color:'#8AAEC9'}} className='mx-2'>Food</a>
+                    <a href="" style={{color:'#8AAEC9'}} className='mx-2'>Travel</a>
+                    <a href="" style={{color:'#8AAEC9'}} className='mx-2'>Healthcare</a>
+                    <a href="" style={{color:'#8AAEC9'}} className='mx-2'>Retail</a>
+                </div>
+                <div className='mt-4'>
                         <table className="table-auto w-full">
                             <thead>
                                 <tr className='bg-white-600 shadow-lg my-4'>
