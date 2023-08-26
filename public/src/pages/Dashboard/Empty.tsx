@@ -31,10 +31,10 @@ function Empty() {
                     </div>
                     <div>
                             <ul className='flex justify-end -mt-8'>
-                                <li className='list-none p-2 rounded-lg mx-4 active'>Monthly</li>
-                                <li className='list-none p-2 rounded-lg mx-4'>Weekly</li>
-                                <li className='list-none p-2 rounded-lg mx-4'>Daily</li>
-                                <li className='list-none p-2 rounded-lg mx-4'>All time</li>
+                                <li className='list-none p-2 rounded-lg mx-4 active'><a href="">Monthly</a></li>
+                                <li className='list-none p-2 rounded-lg mx-4'><a href="">Weekly</a></li>
+                                <li className='list-none p-2 rounded-lg mx-4'><a href="">Daily</a></li>
+                                <li className='list-none p-2 rounded-lg mx-4'><a href="">All time</a></li>
                             </ul>
                     </div>
                 </div>
