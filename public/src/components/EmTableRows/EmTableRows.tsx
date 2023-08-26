@@ -9,8 +9,8 @@ export default function EmTableRows(props:any) {
                 disabled={true} value={50}
             /></td>
             <td className='flex'>
-                <a href="" className='rounded me-3' style={{ backgroundColor: 'rgba(28, 92, 95, 1)' }}><img src="src/assets/icons/gift.svg" style={{ filter: 'brightness(900%)' }} className='ms-2 mr-2 ' alt="" /></a>
-                <a href="" style={{ border: '1px solid rgb(210, 66, 82)' }} className='rounded px-3 py-1'><img src="src/assets/icons/close.svg" alt="" /></a>
+                <a href="" className='rounded me-3 button' style={{ backgroundColor: 'rgba(28, 92, 95, 1)' }}><img src="src/assets/icons/gift.svg" style={{ filter: 'brightness(900%)' }} className='ms-2 mr-2 py-1' alt="" /></a>
+                <a href="" style={{ border: '1px solid rgb(210, 66, 82)' }} className='rounded'><img src="src/assets/icons/close.svg" className='px-3 py-2' alt="" /></a>
             </td>
         </tr>
     )
