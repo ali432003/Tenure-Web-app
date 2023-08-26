@@ -1,7 +1,7 @@
 import React from 'react'
-import Slidebar from '../../components/Slidebar/Slidebar'
-import Button from '../../components/Button/Button'
-import EmTableRows from '../../components/EmTableRows/EmTableRows'
+import Slidebar from '../../../components/Slidebar/Slidebar'
+import Button from '../../../components/Button/Button'
+import EmTableRows2 from '../../../components/EmTableRows/EmTableRows2'
 
 
 export default function Employees() {
@@ -15,8 +15,8 @@ export default function Employees() {
                 <div className='mt-5 flex justify-between'>
                     <div>
                         <ul className='flex ms-4'>
-                            <li className='list-none p-2 rounded-lg active'><a href="">All Employee</a></li>
-                            <li className='list-none p-2 rounded-lg '><a href="/Reciever">Top Recievers</a></li>
+                            <li className='list-none p-2 rounded-lg '><a href="/Employees">All Employee</a></li>
+                            <li className='list-none p-2 rounded-lg active'><a href="/Reciever">Top Recievers</a></li>
                             <li className='list-none p-2 rounded-lg '><a href="/Purchase">Top Purchases</a></li>
                         </ul>
                     </div>
@@ -35,20 +35,20 @@ export default function Employees() {
                             <thead>
                                 <tr >
                                     <th className='text-start w-1/4' style={{color:'#25384D'}}>Employee</th>
-                                    <th className='flex justify-start' style={{color:'#25384D'}}>Saving goal(s) <img src="src/assets/icons/i.svg" className='ml-2' alt="" /></th>
                                     <th className='w-1/4' style={{color:'#25384D'}}>Overall progress</th>
+                                    <th className='w-1/4 text-start' style={{color:'#25384D'}}>Total contributions received</th>
                                     <th className='w-1/4'></th>
                                 </tr>
                             </thead>
                             <tbody className='gap-x-7 gap-y-7'>
-                                <EmTableRows img="jon.svg" name="Jon Snow" goal="New car, First home, Vacation, Engagament ring"/>
-                                <EmTableRows img="vinn.svg" name="Vinn Isuis" goal="Vacation"/>
-                                <EmTableRows img="rodd.svg" name="Rodd Rigo" goal="Mortgage, Birthday shopping"/>
-                                <EmTableRows img="sam.svg" name="Sam Anther" goal="Rent, New car, New TV"/>
-                                <EmTableRows img="eden.svg" name="Eden Garden" goal="Family vacation, Greece trip"/>
-                                <EmTableRows img="gabi.svg" name="Gabi Cunha" goal="Birthday party"/>
-                                <EmTableRows img="ronald.svg" name="Ronald Christian" goal="New car, Vacation, Christmas shopping"/>
-                                <EmTableRows img="lionel.svg" name="Lionel Richmond" goal="Summer party"/>
+                                <EmTableRows2 img="jon.svg" name="Jon Snow" goal="$1,340.56"/>
+                                <EmTableRows2 img="vinn.svg" name="Vinn Isuis" goal="$1,200"/>
+                                <EmTableRows2 img="rodd.svg" name="Rodd Rigo" goal="$1,000"/>
+                                <EmTableRows2 img="sam.svg" name="Sam Anther" goal="$800"/>
+                                <EmTableRows2 img="eden.svg" name="Eden Garden" goal="$750"/>
+                                <EmTableRows2 img="gabi.svg" name="Gabi Cunha" goal="$600"/>
+                                <EmTableRows2 img="ronald.svg" name="Ronald Christian" goal="$560"/>
+                                <EmTableRows2 img="lionel.svg" name="Lionel Richmond" goal="$400"/>
                                 
                             </tbody>
                         </table>
@@ -57,3 +57,4 @@ export default function Employees() {
         </div>
     )
 }
+
