@@ -66,7 +66,7 @@ function Empty() {
                                 </thead>
                                 <tbody className='gap-x-7 gap-y-7'>
                                     <  EmTableRowsD img="mc.svg" name="McDonald's" title="20% off annual gym membership"  exp="06/11/2023" catimg="healthcare.svg" catCol="#972144" cat="Health-care" />
-                                    <  EmTableRowsD img="health_fit.svg" name="Healthfit" title="Visit 2 times and save 5%"  exp="06/11/2023" catimg="food.svg" catCol="#972144" cat="Health-care" />
+                                    <  EmTableRowsD img="health_fit.svg" name="Healthfit" title="Visit 2 times and save 5%"  exp="06/11/2023" catimg="food.svg" catCol="#DA6252" cat="Food" />
                                     <  EmTableRowsD img="make_my_trip.svg" name="MakeMyTrip" title="50% off a 5-Day All-Inclusive Caribbean Cruise"  exp="06/11/2023" catimg="travel.svg" catCol="#B77900" cat="Travel" />
                                     <  EmTableRowsD img="starbucks.svg" name="Starbucks" title="Buy One, Get One 50% Off on Selected Fashion Items"  exp="06/11/2023" catimg="retail.svg" catCol="#004E5F" cat="Retail" />
                                 </tbody>
