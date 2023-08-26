@@ -1,7 +1,7 @@
 import React from 'react'
 import Slidebar from '../../../components/Slidebar/Slidebar'
 import Button from '../../../components/Button/Button'
-import EmTableRows3 from '../../../components/EmTableRows/EmTableRows3'
+import  EmTableRowsP from '../../../components/EmTableRows/EmTableRowsP'
 
 
 export default function Employees() {
@@ -43,11 +43,11 @@ export default function Employees() {
                                 </tr>
                             </thead>
                             <tbody className='gap-x-7 gap-y-7'>
-                                <EmTableRows3 img="mc.svg" name="McDonald's" purch="500" deals="3" rupValue="$300" chBack="$400" catimg="food.svg" catCol="#DA6252" cat="Food"/>
-                                <EmTableRows3 img="health_fit.svg" name="Healthfit" purch="500" deals="3" rupValue="$300" chBack="$400" catimg="healthcare.svg" catCol="#972144" cat="Health-care"/>
-                                <EmTableRows3 img="make_my_trip.svg" name="MakeMyTrip" purch="500" deals="3" rupValue="$300" chBack="$400" catimg="travel.svg" catCol="#B77900" cat="Travel"/>
-                                <EmTableRows3 img="starbucks.svg" name="Starbucks" purch="500" deals="3" rupValue="$300" chBack="$400" catimg="food.svg" catCol="#DA6252" cat="Food"/>
-                                <EmTableRows3 img="gap.svg" name="GAP" purch="500" deals="3" rupValue="$300" chBack="$400" catimg="retail.svg" catCol="#004E5F" cat="Retail"/>
+                                < EmTableRowsP img="mc.svg" name="McDonald's" purch="500" deals="3" rupValue="$300" chBack="$400" catimg="food.svg" catCol="#DA6252" cat="Food"/>
+                                < EmTableRowsP img="health_fit.svg" name="Healthfit" purch="500" deals="3" rupValue="$300" chBack="$400" catimg="healthcare.svg" catCol="#972144" cat="Health-care"/>
+                                < EmTableRowsP img="make_my_trip.svg" name="MakeMyTrip" purch="500" deals="3" rupValue="$300" chBack="$400" catimg="travel.svg" catCol="#B77900" cat="Travel"/>
+                                < EmTableRowsP img="starbucks.svg" name="Starbucks" purch="500" deals="3" rupValue="$300" chBack="$400" catimg="food.svg" catCol="#DA6252" cat="Food"/>
+                                < EmTableRowsP img="gap.svg" name="GAP" purch="500" deals="3" rupValue="$300" chBack="$400" catimg="retail.svg" catCol="#004E5F" cat="Retail"/>
                             </tbody>
                         </table>
                         <div className='h-36'></div>

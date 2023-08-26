@@ -1,7 +1,7 @@
 import React from 'react'
 import Slidebar from '../../../components/Slidebar/Slidebar'
 import Button from '../../../components/Button/Button'
-import EmTableRows2 from '../../../components/EmTableRows/EmTableRows2'
+import  EmTableRowsR from '../../../components/EmTableRows/EmTableRowsR'
 
 
 export default function Employees() {
@@ -41,14 +41,14 @@ export default function Employees() {
                                 </tr>
                             </thead>
                             <tbody className='gap-x-7 gap-y-7'>
-                                <EmTableRows2 img="jon.svg" name="Jon Snow" goal="$1,340.56"/>
-                                <EmTableRows2 img="vinn.svg" name="Vinn Isuis" goal="$1,200"/>
-                                <EmTableRows2 img="rodd.svg" name="Rodd Rigo" goal="$1,000"/>
-                                <EmTableRows2 img="sam.svg" name="Sam Anther" goal="$800"/>
-                                <EmTableRows2 img="eden.svg" name="Eden Garden" goal="$750"/>
-                                <EmTableRows2 img="gabi.svg" name="Gabi Cunha" goal="$600"/>
-                                <EmTableRows2 img="ronald.svg" name="Ronald Christian" goal="$560"/>
-                                <EmTableRows2 img="lionel.svg" name="Lionel Richmond" goal="$400"/>
+                                < EmTableRowsR img="jon.svg" name="Jon Snow" goal="$1,340.56"/>
+                                < EmTableRowsR img="vinn.svg" name="Vinn Isuis" goal="$1,200"/>
+                                < EmTableRowsR img="rodd.svg" name="Rodd Rigo" goal="$1,000"/>
+                                < EmTableRowsR img="sam.svg" name="Sam Anther" goal="$800"/>
+                                < EmTableRowsR img="eden.svg" name="Eden Garden" goal="$750"/>
+                                < EmTableRowsR img="gabi.svg" name="Gabi Cunha" goal="$600"/>
+                                < EmTableRowsR img="ronald.svg" name="Ronald Christian" goal="$560"/>
+                                < EmTableRowsR img="lionel.svg" name="Lionel Richmond" goal="$400"/>
                                 
                             </tbody>
                         </table>
