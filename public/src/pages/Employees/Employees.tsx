@@ -33,9 +33,9 @@ export default function Employees() {
                 <div className='mt-10'>
                         <table className="table-auto w-full">
                             <thead>
-                                <tr >
-                                    <th className='text-start w-1/4' style={{color:'#25384D'}}>Employee</th>
-                                    <th className='flex justify-start' style={{color:'#25384D'}}>Saving goal(s) <img src="src/assets/icons/i.svg" className='ml-2' alt="" /></th>
+                                <tr className='bg-white-600 shadow-lg my-4'>
+                                    <th className='text-start w-1/4 p-4' style={{color:'#25384D'}}>Employee</th>
+                                    <th className='flex justify-start mt-4' style={{color:'#25384D'}}>Saving goal(s) <img src="src/assets/icons/i.svg" className='ml-2' alt="" /></th>
                                     <th className='w-1/4' style={{color:'#25384D'}}>Overall progress</th>
                                     <th className='w-1/4'></th>
                                 </tr>

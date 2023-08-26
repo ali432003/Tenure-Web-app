@@ -6,7 +6,7 @@ import EmTableRows3 from '../../../components/EmTableRows/EmTableRows3'
 
 export default function Employees() {
     return (
-        <div className='flex h-screen'>
+        <div className='flex h-min-screen'>
             <Slidebar />
             <div className='w-5/6 ms-5'>
                 <div className='flex items-center justify-between text-start ms-4 mt-5'>
@@ -33,8 +33,8 @@ export default function Employees() {
                 <div className='mt-10'>
                         <table className="table-auto w-full">
                             <thead>
-                                <tr >
-                                    <th className='text-start w-1/4' style={{color:'#25384D'}}>Brand</th>
+                                <tr className='bg-white-600 shadow-lg my-4'>
+                                    <th className='text-start w-1/4 p-4' style={{color:'#25384D'}}>Brand</th>
                                     <th className='  text-start' style={{color:'#25384D'}}>No. of purchases</th>
                                     <th className='  text-start' style={{color:'#25384D'}}>Active deals</th>
                                     <th className='  text-start' style={{color:'#25384D'}}>Total round-up value</th>
@@ -50,6 +50,7 @@ export default function Employees() {
                                 <EmTableRows3 img="gap.svg" name="GAP" purch="500" deals="3" rupValue="$300" chBack="$400" catimg="retail.svg" catCol="#004E5F" cat="Retail"/>
                             </tbody>
                         </table>
+                        <div className='h-36'></div>
                     </div>
             </div>
         </div>
