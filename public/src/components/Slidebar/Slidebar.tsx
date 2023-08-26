@@ -12,13 +12,13 @@ function Slidebar() {
             </div>
             <div style={{marginTop:'60%'}}>
                 <div className='pb-1'>
-                    <a href="" className='text-white font-semibold text-center text-lg p-3 transition-colors flex items-center ms-4'>
+                    <a href="/Dashboard" className='text-white font-semibold text-center text-lg p-3 transition-colors flex items-center ms-4'>
                         <img src="src/assets/icons/logo_icon_small_1.svg" className='mr-1' alt="" />
                         Home
                     </a>
                 </div>
                 <div className='pb-1'>
-                    <a href="" className='text-white font-semibold text-center text-lg p-3 transition-colors flex items-center ms-4'>
+                    <a href="/Employees" className='text-white font-semibold text-center text-lg p-3 transition-colors flex items-center ms-4'>
                         <img src="src/assets/icons/employees_2.svg" className='mr-5' alt="" />Employee</a>
                 </div>
                 <div className='pb-1'>
