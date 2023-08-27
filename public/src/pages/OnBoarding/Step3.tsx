@@ -95,7 +95,7 @@ function Step3() {
           </div>
           <div className="flex justify-between">
             <span className="text-lg font-semibold align-bottom cursor-pointer" style={{ color: 'rgb(56 133 123 /1)' }}>
-              <a href="/OnBoarding1">
+              <a href="/OnBoarding2">
                 <img
                   src="src/assets/icons/chevron_left.svg"
                   alt=""

@@ -13,10 +13,10 @@ import Email_sent from './pages/ForgetPassword/Email_sent.tsx';
 import Step1 from './pages/OnBoarding/Step1.tsx';
 import Step2 from './pages/OnBoarding/Step2.tsx';
 import Step3 from './pages/OnBoarding/Step3.tsx';
-import Step4 from './pages/OnBoarding/Step4.tsx';
+// import Step4 from './pages/OnBoarding/Step4.tsx';
 import Step4_dc from './pages/OnBoarding/Step4_dc.tsx';
-import Step4_sucess from './pages/OnBoarding/Step4_sucess.tsx';
-import Step4_error from './pages/OnBoarding/Step4_error.tsx';
+
+// import Step4_error from './pages/OnBoarding/Step4_error.tsx';
 import Empty from './pages/Dashboard/Empty.tsx';
 
 
@@ -71,7 +71,7 @@ const router = createBrowserRouter([
   },
   {
     path:'/OnBoarding4',
-    element: [<Step4/>,<Step4_sucess/>,<Step4_dc/>]
+    element: [<Step4_dc/>]
   },
   {
     path: '/Dashboard',

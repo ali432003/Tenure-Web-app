@@ -1,12 +1,12 @@
-import React,{useState} from 'react';
+//import React,{useState} from 'react';
 import Button from '../../components/Button/Button';
 import * as yup from 'yup';
-import { Field, useFormik } from 'formik';
-import { useNavigate } from 'react-router-dom';
+import {  useFormik } from 'formik';
+import {useNavigate } from 'react-router-dom';
 
 
 function Step1() {
-const [validation, setValidation] = useState(false)
+//const [validation, setValidation] = useState(false)
 
 const navigate = useNavigate();
   const formik = useFormik({
@@ -22,7 +22,7 @@ const navigate = useNavigate();
       companyName: yup.string().required('This field is required'),
       options: yup.string().required('This field is required'),
     }),
-    onSubmit: (values) => {
+    onSubmit: () => {
       //console.log(JSON.stringify(values, null, 2));
       navigate('/OnBoarding2')
     },

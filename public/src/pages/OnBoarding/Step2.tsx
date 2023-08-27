@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import Button from '../../components/Button/Button';
 import { Formik, Form, FieldArray, Field, ErrorMessage } from 'formik';
 import * as yup from 'yup';
-import { useNavigate } from 'react-router-dom';
+
+import { Step4_sucess } from './Step4_sucess';
 const initialValues = {
   employees: [{ name: '', email: '', birthday: '', location: '' }],
 };
@@ -19,61 +20,18 @@ const validationSchema = yup.object().shape({
 });
 
 function Step2() {
-  // return(
-  //     <Formik initialValues={
-  //             initialValues
-  //         }
-  //         validationSchema={validationSchema}
-  //         onSubmit={(values,actions)=>{
-  //             console.log(values)
-  //         }}>
-  //     {({values})=>(
-  //         <Form>
-  //             <FieldArray name='employees'
-  //             render ={({push,pop})=>{
-  //                 return(
-  //                     <>
-  //                     <div>
-  //                         {values.employees.map((employee, index) => {
-  //                             return (
-  //                             <div key={index}>
-  //                             <Field key={`${index}-name`} id={`employees.${index}.name`} name={`employees.${index}.name`} />
-  //                             <Field key={`${index}-role`} id={`employees.${index}.role`} name={`employees.${index}.role`} />
-  //                             </div>
-  //                              )
-  //                         })}
-  //                     </div>
-  //                     <button
-  //                         type='button'
-  //                         onClick={() => push({ name: '', role: '' })}
-  //                     >
-  //                             add New
-  //                         </button><button
-  //                             type='button'
-  //                             onClick={() => pop()}
-  //                         >
-  //                             remove
-  //                         </button>
-  //                         </>
 
-  //                 )
-  //             }}
-  //             />
-  //         </Form>
-  //     )}
+  
+  const [component, setComponent] = useState(false);
 
-  //     </Formik>
-  // )
-  const navigate = useNavigate();
-  const [submitted, setSubmitted] = useState(false);
-  function onSubmit(values: any) {
-    navigate('/OnBoarding3')
-  }
   type PushFunctionType = (obj: any) => void;
   type PopFunctionType = () => void;
 
   return (
     <>
+    {
+      component ===false ?  
+    
       <div className="bg-gray-50 grid grid-cols-1">
         <div className="container min-w-full center pt-48 relative flex flex-col justify-center items-center">
           <h1>Invite your employees</h1>
@@ -100,8 +58,8 @@ function Step2() {
             Upload a CSV file with your employee details
           </div>
 
-          <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
-            {({ values, errors }) => (
+          <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={()=>setComponent(true)}>
+            {({ values,  }) => (
               <Form className="w-1/2" method="Post">
                 <FieldArray
                   name="employees"
@@ -224,38 +182,16 @@ function Step2() {
                 />
 
                 <div className="">
-                  {/* <Button type="submit" className="button-primary-lg button mt-5 mb-9" style={{ borderRadius: '10px',backgroundColor: "rgb(56 133 123 /1)"}}>
-                          <a href="/OnBoarding3">Send Invite</a> 
-                        </Button> */}
                   <Button
                     type="submit"
                     className="button-primary-lg button mt-7"
                     style={{ borderRadius: '10px', backgroundColor: 'rgb(56 133 123 /1)' }}
-                    onClick={() => setSubmitted(true)} // Update state when button is clicked
+                     // Update state when button is clicked
                   >
                <span className="contents">
-                  Next &nbsp;<img src="src/assets/icons/chevron_right.svg" style={{ filter: 'brightness(300%)' }} alt="right_arrow"></img>
+                  Send Invite 
+                  {/* &nbsp;<img src="src/assets/icons/chevron_right.svg" style={{ filter: 'brightness(300%)' }} alt="right_arrow"></img> */}
                 </span>
-              
-                    {/* {submitted ? (
-                      <a href="/OnBoarding2" className="contents">
-                        Send Invite
-                        <img
-                          src="src/assets/icons/chevron_right.svg"
-                          style={{ filter: 'brightness(300%)' }}
-                          alt="right_arrow"
-                        />
-                      </a>
-                    ) : (
-                      <span className="contents">
-                        Send Invite
-                        <img
-                          src="src/assets/icons/chevron_right.svg"
-                          style={{ filter: 'brightness(300%)' }}
-                          alt="right_arrow"
-                        />
-                      </span>
-                    )} */}
                   </Button>
                 </div>
               </Form>
@@ -282,6 +218,8 @@ function Step2() {
           </div>
         </div>
       </div>
+  : <Step4_sucess title='Invites sent successfully' btnText="Next" show = {true} previousLink='/onBoarding1' stepNumber='2'/>   
+  }
     </>
   );
 }
