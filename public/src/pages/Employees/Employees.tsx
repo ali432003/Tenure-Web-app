@@ -1,58 +1,320 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Slidebar from '../../components/Slidebar/Slidebar'
-import Button from '../../components/Button/Button'
-import EmTableRows from '../../components/EmTableRows/EmTableRows'
+import EmTableRows from '../../components/Em/EmTableRows'
+import EmptyEm from './Empty/EmptyEm'
+import EmTableHeads from '../../components/Em/EmTableHeads'
+import './Employee.css'
+
 
 
 export default function Employees() {
+
+
+    const [currentKey, setCurrentKey] = useState('');
+    const [emClass, setEmClass] = useState('list-none rounded-lg p-2');
+    const [prClass, setPrClass] = useState('list-none rounded-lg p-2');
+    const [reClass, setReClass] = useState('list-none rounded-lg p-2');
+    const [selectedCategory, setSelectedCategory] = useState('all'); //by default it should be all
+
+    const maHandler = () => {
+        setCurrentKey('main');
+        setEmClass('list-none rounded-lg p-2 active');
+        setPrClass('list-none rounded-lg p-2');
+        setReClass('list-none rounded-lg p-2');
+    };
+
+    const puHandler = () => {
+        setCurrentKey('purchase');
+        setEmClass('list-none rounded-lg p-2');
+        setPrClass('list-none rounded-lg p-2 active');
+        setReClass('list-none rounded-lg p-2');
+        setSelectedCategory('all')
+    };
+
+    const reHandler = () => {
+        setCurrentKey('receiver');
+        setEmClass('list-none rounded-lg p-2');
+        setPrClass('list-none rounded-lg p-2');
+        setReClass('list-none rounded-lg p-2 active');
+    };
+    const emHandler = () => {
+        setCurrentKey('empty');  // just for cheking purpose if no data is passed then this handler runs and 
+        // renders the default empty page made for employees
+        let di = document.getElementById('di')
+        if (di) {
+            di.style.display = 'flex';
+        }
+    }
+    const dataOfPurch = [
+        {
+            id: 1,
+            name: "McDonald's",
+            category: 'food',
+            img: 'mc.svg',
+            purch: '500',
+            deals: '3',
+            rupValue: '$300',
+            chBack: '$400',
+            catimg: 'food.svg',
+            catCol: '#DA6252',
+            cat: 'Food',
+        },
+        {
+            id: 2,
+            name: 'Healthfit',
+            category: 'Health-care',
+            img: 'health_fit.svg',
+            purch: '500',
+            deals: '3',
+            rupValue: '$300',
+            chBack: '$400',
+            catimg: 'healthcare.svg',
+            catCol: '#972144',
+            cat: 'Health-care',
+        },
+        {
+            id: 3,
+            name: 'MakeMyTrip',
+            category: 'travel',
+            img: 'make_my_trip.svg',
+            purch: '500',
+            deals: '3',
+            rupValue: '$300',
+            chBack: '$400',
+            catimg: 'travel.svg',
+            catCol: '#B77900',
+            cat: 'Travel',
+        },
+        {
+            id: 4,
+            name: 'Starbucks',
+            category: 'food',
+            img: 'starbucks.svg',
+            purch: '500',
+            deals: '3',
+            rupValue: '$300',
+            chBack: '$400',
+            catimg: 'food.svg',
+            catCol: '#DA6252',
+            cat: 'Food',
+        },
+        {
+            id: 5,
+            name: 'GAP',
+            category: 'retail',
+            img: 'gap.svg',
+            purch: '500',
+            deals: '3',
+            rupValue: '$300',
+            chBack: '$400',
+            catimg: 'retail.svg',
+            catCol: '#004E5F',
+            cat: 'Retail',
+        },
+        
+    ];
+
+    const filterByCategory = (category: any) => {
+        setSelectedCategory(category);
+    };
+    type Item = {
+        id: number;
+        name: string;
+        category: string;
+        img: string;
+        purch: string,
+        deals: string,
+        rupValue: string,
+        chBack: string,
+        catimg: string,
+        catCol: string,
+        cat: string,
+    };
+    const filteredRows = dataOfPurch.filter((item: Item) => selectedCategory === 'all' || item.category === selectedCategory);
+
+
+    // Render rows based on the selected key
+    const renderRows = () => {
+        if (currentKey === 'main') {
+            let prDiv = document.getElementById('prDiv');
+            if (prDiv) {
+                prDiv.style.display = 'none'
+            }
+            let di = document.getElementById('di');
+            if (di) {
+                di.style.display = 'flex';
+            }
+            return (
+                <>
+                    <EmTableRows rkey={currentKey} img="jon.svg" name="Jon Snow" goal="New car, First home, Vacation, Engagament ring" />
+                    <EmTableRows rkey={currentKey} img="vinn.svg" name="Vinn Isuis" goal="Vacation" />
+                    <EmTableRows rkey={currentKey} img="rodd.svg" name="Rodd Rigo" goal="Mortgage, Birthday shopping" />
+                    <EmTableRows rkey={currentKey} img="sam.svg" name="Sam Anther" goal="Rent, New car, New TV" />
+                    <EmTableRows rkey={currentKey} img="eden.svg" name="Eden Garden" goal="Family vacation, Greece trip" />
+                    <EmTableRows rkey={currentKey} img="gabi.svg" name="Gabi Cunha" goal="Birthday party" />
+                    <EmTableRows rkey={currentKey} img="ronald.svg" name="Ronald Christian" goal="New car, Vacation, Christmas shopping" />
+                    <EmTableRows rkey={currentKey} img="lionel.svg" name="Lionel Richmond" goal="Summer party" />
+                </>
+            );
+        } else if (currentKey === 'receiver') {
+            let prDiv = document.getElementById('prDiv');
+            if (prDiv) {
+                prDiv.style.display = 'none'
+            }
+            let di = document.getElementById('di');
+            if (di) {
+                di.style.display = 'flex';
+            }
+            return (
+                <>
+                    < EmTableRows rkey={currentKey} img="jon.svg" name="Jon Snow" goal="$1,340.56" />
+                    < EmTableRows rkey={currentKey} img="vinn.svg" name="Vinn Isuis" goal="$1,200" />
+                    < EmTableRows rkey={currentKey} img="rodd.svg" name="Rodd Rigo" goal="$1,000" />
+                    < EmTableRows rkey={currentKey} img="sam.svg" name="Sam Anther" goal="$800" />
+                    < EmTableRows rkey={currentKey} img="eden.svg" name="Eden Garden" goal="$750" />
+                    < EmTableRows rkey={currentKey} img="gabi.svg" name="Gabi Cunha" goal="$600" />
+                    < EmTableRows rkey={currentKey} img="ronald.svg" name="Ronald Christian" goal="$560" />
+                    < EmTableRows rkey={currentKey} img="lionel.svg" name="Lionel Richmond" goal="$400" />
+                </>
+            );
+        } else if (currentKey === 'purchase') {
+            let prDiv = document.getElementById('prDiv');
+            if (prDiv) {
+                prDiv.style.display = 'flex'
+            }
+            let di = document.getElementById('di');
+            if (di) {
+                di.style.display = 'flex';
+            }
+
+            return (
+                <>
+                    {filteredRows.map((item: Item) => (
+                        <React.Fragment key={item.id}>
+                            <EmTableRows
+                                rkey={currentKey}
+                                selectedCategory={selectedCategory}
+                                img={item.img}
+                                name={item.name}
+                                purch={item.purch}
+                                deals={item.deals}
+                                rupValue={item.rupValue}
+                                chBack={item.chBack}
+                                catimg={item.catimg}
+                                catCol={item.catCol}
+                                cat={item.cat}
+                            />
+                            <EmTableRows
+                                rkey={currentKey}
+                                selectedCategory={selectedCategory}
+                                img={item.img}
+                                name={item.name}
+                                purch={item.purch}
+                                deals={item.deals}
+                                rupValue={item.rupValue}
+                                chBack={item.chBack}
+                                catimg={item.catimg}
+                                catCol={item.catCol}
+                                cat={item.cat}
+                            />
+                            <EmTableRows
+                                rkey={currentKey}
+                                selectedCategory={selectedCategory}
+                                img={item.img}
+                                name={item.name}
+                                purch={item.purch}
+                                deals={item.deals}
+                                rupValue={item.rupValue}
+                                chBack={item.chBack}
+                                catimg={item.catimg}
+                                catCol={item.catCol}
+                                cat={item.cat}
+                            />
+                            <EmTableRows
+                                rkey={currentKey}
+                                selectedCategory={selectedCategory}
+                                img={item.img}
+                                name={item.name}
+                                purch={item.purch}
+                                deals={item.deals}
+                                rupValue={item.rupValue}
+                                chBack={item.chBack}
+                                catimg={item.catimg}
+                                catCol={item.catCol}
+                                cat={item.cat}
+                            />
+                            <EmTableRows
+                                rkey={currentKey}
+                                selectedCategory={selectedCategory}
+                                img={item.img}
+                                name={item.name}
+                                purch={item.purch}
+                                deals={item.deals}
+                                rupValue={item.rupValue}
+                                chBack={item.chBack}
+                                catimg={item.catimg}
+                                catCol={item.catCol}
+                                cat={item.cat}
+                            />
+                        </React.Fragment>
+                    ))}
+                </>
+            );
+            
+        } else {
+            //  Default case when no key is selected
+            // return null;
+            let di = document.getElementById('di');
+            if (di) {
+                di.style.display = 'none';
+            }
+            return <EmptyEm />;
+
+        }
+
+    };
     return (
         <div className='flex h-min-screen'>
             <Slidebar />
             <div className='w-5/6 ms-5'>
+                {/* EmTop Componenet */}
                 <div className='flex items-center justify-between text-start ms-4 mt-5'>
                     <h1>Employees</h1>
                 </div>
-                <div className='mt-5 flex justify-between'>
+                <div className='mt-5 flex justify-between' id='di'>
                     <div>
                         <ul className='flex ms-4'>
-                            <li className='list-none p-2 rounded-lg active'><a href="">All Employee</a></li>
-                            <li className='list-none p-2 rounded-lg '><a href="/Reciever">Top Recievers</a></li>
-                            <li className='list-none p-2 rounded-lg '><a href="/Purchase">Top Purchases</a></li>
+                            <li className={`${emClass} cursor-pointer`} onClick={maHandler} >All Employee</li>
+                            <li className={`${reClass} cursor-pointer`} onClick={reHandler}>Top Recievers</li>
+                            <li className={`${prClass} cursor-pointer`} onClick={puHandler}>Top Purchases</li>
                         </ul>
                     </div>
                     <div>
                         <ul className='flex '>
-                            <li className='list-none p-2 rounded-lg flex'><img src="src/assets/icons/bell.svg" className='mr-2' alt="" /><a href="">Send A Notification</a></li>
-                            <li className='list-none mx-3 border border-solid rounded-lg flex'><img src="src/assets/icons/gift.svg" className='ms-1' width={'20px'} alt="" /><a href='' className='mt-2 ms-2 me-2'> Gift All Employees</a></li>
-                            <li className='list-none p-2 rounded-lg active flex'><img src="src/assets/icons/add_2.svg
-                                " alt="" className='mr-2' /><a href=''> Add Another Employee</a></li>
+                            <li className='list-none p-2 rounded-lg flex  cursor-pointer' onClick={emHandler}><img src="src/assets/icons/bell.svg" className='mr-2' alt="" /><a>Send A Notification</a></li>
+                            <li className='list-none mx-2 border border-solid rounded-lg flex'><img src="src/assets/icons/gift.svg" className='ms-1' width={'20px'} alt="" /><a href='' className='mt-2 ms-2 me-2'> Gift All Employees</a></li>
+                            <li className='list-none p-2 rounded-lg active flex'>
+                                <img src="src/assets/icons/add_2.svg
+                        "alt="" className='mr-2' /><a href=''> Add Another Employee</a></li>
                         </ul>
                     </div>
-                    
+
+                </div>
+                <div className='flex mt-6' id='prDiv' style={{ display: 'none' }}>
+                    <a className={`mx-2 cursor-pointer ${selectedCategory === 'all' ? 'blink' : ''}`} onClick={() => filterByCategory('all')}>All categories</a>
+                    <a className={`mx-2 cursor-pointer ${selectedCategory === 'food' ? 'blink' : ''}`} onClick={() => filterByCategory('food')}>Food</a>
+                    <a className={`mx-2 cursor-pointer ${selectedCategory === 'travel' ? 'blink' : ''}`} onClick={() => filterByCategory('travel')}>Travel</a>
+                    <a className={`mx-2 cursor-pointer ${selectedCategory === 'Health-care' ? 'blink' : ''}`} onClick={() => filterByCategory('Health-care')}>Healthcare</a>
+                    <a className={`mx-2 cursor-pointer ${selectedCategory === 'retail' ? 'blink' : ''}`} onClick={() => filterByCategory('retail')}>Retail</a>
                 </div>
                 <div className='mt-10'>
-                        <table className="table-auto w-full">
-                            <thead>
-                                <tr className='bg-white-600 shadow-lg my-4'>
-                                    <th className='text-start w-1/4 p-4' style={{color:'#25384D'}}>Employee</th>
-                                    <th className='flex justify-start mt-4' style={{color:'#25384D'}}>Saving goal(s) <img src="src/assets/icons/i.svg" className='ml-2' alt="" /></th>
-                                    <th className='w-1/4' style={{color:'#25384D'}}>Overall progress</th>
-                                    <th className='w-1/4'></th>
-                                </tr>
-                            </thead>
-                            <tbody className='gap-x-7 gap-y-7'>
-                                <EmTableRows img="jon.svg" name="Jon Snow" goal="New car, First home, Vacation, Engagament ring"/>
-                                <EmTableRows img="vinn.svg" name="Vinn Isuis" goal="Vacation"/>
-                                <EmTableRows img="rodd.svg" name="Rodd Rigo" goal="Mortgage, Birthday shopping"/>
-                                <EmTableRows img="sam.svg" name="Sam Anther" goal="Rent, New car, New TV"/>
-                                <EmTableRows img="eden.svg" name="Eden Garden" goal="Family vacation, Greece trip"/>
-                                <EmTableRows img="gabi.svg" name="Gabi Cunha" goal="Birthday party"/>
-                                <EmTableRows img="ronald.svg" name="Ronald Christian" goal="New car, Vacation, Christmas shopping"/>
-                                <EmTableRows img="lionel.svg" name="Lionel Richmond" goal="Summer party"/>
-                                
-                            </tbody>
-                        </table>
-                    </div>
+                    <table className='table-auto w-full'>
+                        <EmTableHeads hkey={currentKey} />
+                        {renderRows()}
+                    </table>
+                </div>
+
+                <div className='h-40'></div>
             </div>
         </div>
     )
