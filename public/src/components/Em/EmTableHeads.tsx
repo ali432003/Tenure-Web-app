@@ -1,6 +1,13 @@
-import React from 'react';
+import React from 'react'
+import Tippy from '@tippyjs/react';
+import 'tippy.js/dist/tippy.css'; 
+import 'tippy.js/animations/scale.css'; 
+import './style.css'; 
+
 
 export default function EmTableHeads(props: any) {
+
+
     var shouldShowMain;
     var shouldShowPurchase;
     var shouldShowReceiver;
@@ -27,9 +34,15 @@ export default function EmTableHeads(props: any) {
                     <thead>
                         <tr className='bg-white-600 shadow-lg my-4'>
                             <th className='text-start w-1/4 p-4' style={{ color: '#25384D' }}>Employee</th>
-                            <th className='flex justify-start mt-4' style={{ color: '#25384D' }}>
-                                Saving goal(s) <img src="src/assets/icons/i.svg" className='ml-2' alt="" />
+                            <th className='flex justify-start mt-4 saveGoals cursor-pointer' style={{ color: '#25384D' }}>
+                                <a>
+                                    <Tippy content={<span>Hover on saving goals to see more info</span>}  placement='bottom' animation="scale">
+                                       <span className='flex'> Saving goal(s)<img src="src/assets/icons/i.svg" className='ml-2' alt="" /></span>
+                                    </Tippy>
+                                    
+                                </a>
                             </th>
+
                             <th className='w-1/4' style={{ color: '#25384D' }}>Overall progress</th>
                             <th className='w-1/4'></th>
                         </tr>

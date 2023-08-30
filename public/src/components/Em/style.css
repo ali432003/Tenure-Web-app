@@ -1,0 +1,9 @@
+.tippy-content{
+    padding: 8px;
+    color: #FFFF;
+    background-color: #25384D;
+    border-radius: 16px;
+}
+.tippy-arrow{
+    color: #25384D;
+}
