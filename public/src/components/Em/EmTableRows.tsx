@@ -1,24 +1,14 @@
 import React from 'react'
 import Tippy from '@tippyjs/react';
-import 'tippy.js/dist/tippy.css'; 
-import 'tippy.js/animations/scale.css'; 
+import 'tippy.js/dist/tippy.css';
+import 'tippy.js/animations/scale.css';
 import './style.css';
 
-
-
-
-
-
-
-
 export default function EmTableRows(props: any) {
-
-
-
-
     var shouldShowMain;
     var shouldShowPurchase;
     var shouldShowReceiver;
+    var shouldShowDashRows;
     if (props.rkey === 'main') {
         shouldShowMain = true;
         shouldShowPurchase = false;
@@ -33,6 +23,12 @@ export default function EmTableRows(props: any) {
         shouldShowMain = false;
         shouldShowPurchase = true;
         shouldShowReceiver = false;
+    }
+    if (props.rkey === 'Dash') {
+        shouldShowMain = false;
+        shouldShowPurchase = false;
+        shouldShowReceiver = false;
+        shouldShowDashRows = true;
     }
 
 
@@ -93,6 +89,21 @@ export default function EmTableRows(props: any) {
                         <td style={{ color: '#25384D' }} className=' text-md   text-start'>{props.deals}</td>
                         <td style={{ color: '#25384D' }} className=' text-md   text-start'>{props.rupValue}</td>
                         <td style={{ color: '#25384D' }} className=' text-md   text-start'>{props.chBack}</td>
+                        <td className='flex justify-start'>
+                            <img src={`src/assets/icons/${props.catimg}`} alt="" />
+                            <p style={{ color: props.catCol }}>{props.cat}</p>
+                        </td>
+                    </tr>
+                </tbody>
+            )}
+
+            {/* Dashboard */}
+            {shouldShowDashRows && (
+                <tbody className='gap-x-7 gap-y-7'>
+                    <tr className='bg-white-600 shadow-lg  my-4'>
+                        <td className='flex p-4 w-1/3'><img src={`src/assets/icons/${props.img}`} className='mr-3' alt="" /><h5 className='text-start pt-1'>{props.name}</h5></td>
+                        <td style={{ color: '#25384D' }} className='text-md font-bold text-start'>{props.title}</td>
+                        <td style={{ color: '#25384D' }} className=' text-md   text-start'>{props.exp}</td>
                         <td className='flex justify-start'>
                             <img src={`src/assets/icons/${props.catimg}`} alt="" />
                             <p style={{ color: props.catCol }}>{props.cat}</p>

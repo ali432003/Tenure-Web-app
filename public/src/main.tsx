@@ -19,6 +19,10 @@ import Step4_error from './pages/OnBoarding/Step4_error.tsx';
 import EmptyEm from './pages/Employees/Empty/EmptyEm.tsx';
 import Empty from './pages/Dashboard/Empty.tsx';
 import Employees from './pages/Employees/Employees.tsx';
+import Deals from './pages/Deals/Deals.tsx';
+import Wallet from './pages/Wallet/Wallet.tsx';
+import Settings from './pages/Settings/Settings.tsx';
+import Logout from './pages/Logout/Logout.tsx';
 
 
 
@@ -62,6 +66,22 @@ const router = createBrowserRouter([
   {
     path: '/Empty',
     element:  <EmptyEm />,
+  },
+  {
+    path: '/Deals',
+    element:  <Deals />,
+  },
+  {
+    path: '/Wallet',
+    element:  <Wallet />,
+  },
+  {
+    path: '/Settings',
+    element:  <Settings />,
+  },
+  {
+    path: '/Logout',
+    element:  <Logout />,
   },
 ]);
 
