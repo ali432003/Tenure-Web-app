@@ -10,6 +10,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@mui/base": "^5.0.0-beta.13",
+    "@mui/material": "^5.14.7",
+    "@mui/system": "^5.14.7",
     "@tippyjs/react": "^4.2.6",
     "formik": "^2.4.3",
     "localforage": "^1.10.0",
