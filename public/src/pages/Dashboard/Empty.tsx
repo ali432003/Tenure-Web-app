@@ -3,7 +3,7 @@ import './Emty.css';
 // import Button from '../../components/Button/Button';
 import Slidebar from '../../components/Slidebar/Slidebar';
 import Box from '../../components/Box/Box';
-import  EmTableRowsD from '../../components/EmTableRows/EmTableRowsD';
+// import  EmTableRowsD from '../../components/EmTableRows/EmTableRowsD';
 import { ChartContainer, BarPlot } from '@mui/x-charts';
 import { LinePlot, MarkPlot } from '@mui/x-charts/LineChart';
 
@@ -16,7 +16,8 @@ const box1Labels = [
   'Page E',
   'Page F',
 ];
-
+import EmTableHeads from '../../components/Em/EmTableHeads';
+import EmTableRows from '../../components/Em/EmTableRows';
 const box2Data = [4000, 3000, 2000, 2780, 1890, 2390];
 // const box2Data = [2400, 1398, 9800, 3908, 4800, 3800, 4300];
 const box2Labels = [
@@ -30,6 +31,46 @@ const box2Labels = [
 ];
 
 function Empty() {
+
+    let dataOfDash = [
+        {
+            "img": "mc.svg",
+            "name": "McDonald's",
+            "title": "20% off annual gym membership",
+            "exp": "06/11/2023",
+            "catimg": "healthcare.svg",
+            "catCol": "#972144",
+            "cat": "Health-care"
+        },
+        {
+            "img": "health_fit.svg",
+            "name": "Healthfit",
+            "title": "Visit 2 times and save 5%",
+            "exp": "06/11/2023",
+            "catimg": "food.svg",
+            "catCol": "#DA6252",
+            "cat": "Food"
+        },
+        {
+            "img": "make_my_trip.svg",
+            "name": "MakeMyTrip",
+            "title": "50% off a 5-Day All-Inclusive Caribbean Cruise",
+            "exp": "06/11/2023",
+            "catimg": "travel.svg",
+            "catCol": "#B77900",
+            "cat": "Travel"
+        },
+        {
+            "img": "starbucks.svg",
+            "name": "Starbucks",
+            "title": "Buy One, Get One 50% Off on Selected Fashion Items",
+            "exp": "06/11/2023",
+            "catimg": "retail.svg",
+            "catCol": "#004E5F",
+            "cat": "Retail"
+        }
+    ]
+
     return (
         <div className='wholePage h-full'>
             {/* <div className='leftSide'>
@@ -164,20 +205,20 @@ function Empty() {
                     <div className=''>
                         <div className='mt-4'>
                             <table className="table-auto w-full">
-                                <thead>
-                                    <tr className='bg-white-600 shadow-lg my-4'>
-                                        <th className='text-start w-1/4 p-4' style={{ color: '#25384D' }}>Brand</th>
-                                        <th className='text-start'  style={{ color: '#25384D' }}>Offer Title</th>
-                                        <th className='  text-start w-1/5' style={{ color: '#25384D' }}>Expiray-Date</th>
-                                        <th className='  text-start' style={{ color: '#25384D' }}>Category</th>
-                                    </tr>
-                                </thead>
-                                <tbody className='gap-x-7 gap-y-7'>
-                                    <  EmTableRowsD img="mc.svg" name="McDonald's" title="20% off annual gym membership"  exp="06/11/2023" catimg="healthcare.svg" catCol="#972144" cat="Health-care" />
-                                    <  EmTableRowsD img="health_fit.svg" name="Healthfit" title="Visit 2 times and save 5%"  exp="06/11/2023" catimg="food.svg" catCol="#DA6252" cat="Food" />
-                                    <  EmTableRowsD img="make_my_trip.svg" name="MakeMyTrip" title="50% off a 5-Day All-Inclusive Caribbean Cruise"  exp="06/11/2023" catimg="travel.svg" catCol="#B77900" cat="Travel" />
-                                    <  EmTableRowsD img="starbucks.svg" name="Starbucks" title="Buy One, Get One 50% Off on Selected Fashion Items"  exp="06/11/2023" catimg="retail.svg" catCol="#004E5F" cat="Retail" />
-                                </tbody>
+                                <EmTableHeads hkey="Dash" />
+                                {dataOfDash.map((item, index) => (
+                                    <EmTableRows
+                                        rkey="Dash"
+                                        key={index}
+                                        img={item.img}
+                                        name={item.name}
+                                        title={item.title}
+                                        catimg={item.catimg}
+                                        catCol={item.catCol}
+                                        cat={item.cat}
+                                        exp={item.exp}
+                                    />
+                                ))}
                             </table>
                         </div>
                     </div>

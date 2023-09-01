@@ -27,6 +27,7 @@ console.log(Page)
                         <img src="src/assets/icons/logo_icon_small_1.svg" className='mr-1' alt="" />
                         Home
                     </Link>
+                    
                 </div>
   
   
