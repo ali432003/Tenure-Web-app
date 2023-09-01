@@ -55,14 +55,14 @@ export default function Employees() {
         setPrClass('list-none rounded-lg p-2');
         setReClass('list-none rounded-lg p-2 active');
     };
-    const emHandler = () => {
-        setCurrentKey('empty');  // just for cheking purpose if no data is passed then this handler runs and 
-        // renders the default empty page made for employees
-        let di = document.getElementById('di')
-        if (di) {
-            di.style.display = 'none';
-        }
-    }
+    // const emHandler = () => {
+    //     setCurrentKey('empty');  // just for cheking purpose if no data is passed then this handler runs and 
+    //     // renders the default empty page made for employees
+    //     let di = document.getElementById('di')
+    //     if (di) {
+    //         di.style.display = 'none';
+    //     }
+    // }
     const dataOfPurch = [
         {
             id: 1,
