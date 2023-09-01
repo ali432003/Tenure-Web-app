@@ -46,18 +46,13 @@ const [component, setComponent] = useState(false)
       </div>
       <div>
         <p
-          style={{
-            color: 'grey',
-            position: 'relative',
-            left: '22%',
-          }}
-          className="mt-5"
+          className="text-gray-400 mt-5 mx-auto text-right w-1/3 "
         >
           Step 4/4
         </p>
       </div>
       <div className="container min-w-full center pt-9 relative flex flex-col justify-center items-center">
-        <form className="w-1/2" onSubmit={formik.handleSubmit}>
+        <form className="w-1/3" onSubmit={formik.handleSubmit}>
           <label className="block">
             <input
               type="text"

@@ -6,3 +6,15 @@
     background-color:  rgb(56 133 123 /1);
     color: white;
 }
+/* .wholePage{
+    display: grid;
+    grid-template-areas: 'sidebar rightSide';
+    grid-template-columns: 1.4fr 8fr;
+}
+.leftSide{
+    grid-area: sidebar;
+  }
+.rightSide{
+    grid-area: rightSide;
+} */
+

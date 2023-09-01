@@ -6,9 +6,9 @@ import EmTableRows from '../../components/EmTableRows/EmTableRows'
 
 export default function Employees() {
     return (
-        <div className='flex h-min-screen'>
-            <Slidebar />
-            <div className='w-5/6 ms-5'>
+        <div className='flex h-full'>
+            {/* <Slidebar /> */}
+            <div className='w-full ms-5'>
                 <div className='flex items-center justify-between text-start ms-4 mt-5'>
                     <h1>Employees</h1>
                 </div>

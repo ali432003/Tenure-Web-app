@@ -41,26 +41,22 @@ function Step2() {
         </div>
         <div>
           <p
-            style={{
-              color: 'grey',
-              position: 'relative',
-              left: '22%',
-            }}
-            className="mt-5"
+  
+        className="text-gray-400 mt-5 mx-auto text-right w-1/3 "
           >
             Step 2/4
           </p>
         </div>
 
         <div className="container min-w-full center pt-9 relative flex flex-col justify-center items-center">
-          <div className="mb-5 w-1/2 border border-gray-400 border-dashed p-4 rounded-lg">
+          <div className="mb-5 w-1/3 border border-gray-400 border-dashed p-4 rounded-lg">
             <img src="src/assets/icons/upload.svg" alt="" className="m-auto mb-3" />
             Upload a CSV file with your employee details
           </div>
 
           <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={()=>setComponent(true)}>
             {({ values,  }) => (
-              <Form className="w-1/2" method="Post">
+              <Form className="w-1/3" method="Post">
                 <FieldArray
                   name="employees"
                   render={({ push, pop }: { push: PushFunctionType; pop: PopFunctionType }) => {
@@ -127,8 +123,8 @@ function Step2() {
                                   <img
                                     src="src/assets/icons/search.svg"
                                     alt=""
-                                    className="absolute"
-                                    style={{ right: '26%', transform: 'translateY(-2.5rem)' }}
+                                    className="relative"
+                                    style={{ left: '94%', transform: 'translateY(-40px)',display: 'inline' }}
                                   />
                                   <ErrorMessage
                                     component="div"
@@ -198,7 +194,7 @@ function Step2() {
             )}
           </Formik>
 
-          <div className="flex justify-between w-1/2 mb-4">
+          <div className="flex justify-between w-1/3 mb-4 mt-9  ">
             <span className="text-lg font-semibold align-bottom cursor-pointer" style={{ color: 'rgb(56 133 123 /1)' }}>
               <a href="/OnBoarding1">
                 <img

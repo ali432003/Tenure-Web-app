@@ -18,19 +18,15 @@ function Step4_dc() {
           className='mt-2 w-1/3'>Add money to your gifting wallet through your credit card to gift your employees</p>
       </div>
       <div>
-        <p style={{
-          color: 'grey',
-          position: 'relative',
-          left: '22%'
-        }}
-          className='mt-5'>Step 4/4</p>
+        <p 
+        className="text-gray-400 mt-5 mx-auto text-right w-1/3 ">Step 4/4</p>
       </div>
       <div className="container min-w-full center pt-9 relative flex flex-col justify-center items-center">
         <img src="src/assets/images/card.jpeg" className='w-80'></img>
         
       </div>
       <div className="container min-w-full center pt-9 relative flex flex-col justify-center items-center">
-        <div className='w-1/2'>
+        <div className='w-1/3'>
           <div>
             <Button type="button" className="button-primary-lg  button mt-5 mb-9" style={{ borderRadius: '10px' }} onClick={()=>setComponent(true)}>
               Top up your wallet

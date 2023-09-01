@@ -28,18 +28,13 @@ export const Step4_sucess: React.FC<ComponentProps> = ({ title, btnText, show, p
       </div>
       <div>
         <p
-          style={{
-            color: 'grey',
-            position: 'relative',
-            left: '22%',
-          }}
-          className="mt-5"
+          className="text-gray-400 mt-5 mx-auto text-right w-1/3 "
         >
           Step {stepNumber}/4
         </p>
       </div>
       <div className="container min-w-full center pt-9 relative flex flex-col justify-center items-center">
-        <div className="w-1/2 border-2 rounded-lg border-solid" style={{ borderColor: 'rgb(56 133 123 /1)' }}>
+        <div className="w-1/3 border-2 rounded-lg border-solid" style={{ borderColor: 'rgb(56 133 123 /1)' }}>
           <img
             src="src/assets/icons/check_filled_1.svg"
             width={'250px'}
@@ -55,7 +50,7 @@ export const Step4_sucess: React.FC<ComponentProps> = ({ title, btnText, show, p
             </span>
           </div>
         </div>
-        <div className="w-1/2">
+        <div className="w-1/3">
           <Button
             type="submit"
             className="button-primary-lg  button mt-5 mb-9"
@@ -77,7 +72,7 @@ export const Step4_sucess: React.FC<ComponentProps> = ({ title, btnText, show, p
           </Button>
         </div>
 
-        <div className="flex justify-between w-1/2">
+        <div className="flex justify-between w-1/3">
           <span
             className={`text-lg font-semibold align-bottom cursor-pointer ${show == false ? 'text-left' : ''}`}
             style={{ color: 'rgb(56 133 123 /1)' }}
@@ -105,4 +100,3 @@ export const Step4_sucess: React.FC<ComponentProps> = ({ title, btnText, show, p
   );
 };
 
-// export default Step4_sucess

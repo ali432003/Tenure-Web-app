@@ -1,17 +1,41 @@
 import React from 'react';
 import './Emty.css';
-import Button from '../../components/Button/Button';
+// import Button from '../../components/Button/Button';
 import Slidebar from '../../components/Slidebar/Slidebar';
 import Box from '../../components/Box/Box';
 import  EmTableRowsD from '../../components/EmTableRows/EmTableRowsD';
+import { ChartContainer, BarPlot } from '@mui/x-charts';
+import { LinePlot, MarkPlot } from '@mui/x-charts/LineChart';
 
+const box1Data = [400, 300, 200, 278, 189, 239];
+const box1Labels = [
+  'Page A',
+  'Page B',
+  'Page C',
+  'Page D',
+  'Page E',
+  'Page F',
+];
 
+const box2Data = [4000, 3000, 2000, 2780, 1890, 2390];
+// const box2Data = [2400, 1398, 9800, 3908, 4800, 3800, 4300];
+const box2Labels = [
+  'Page A',
+  'Page B',
+  'Page C',
+  'Page D',
+  'Page E',
+  'Page F',
+
+];
 
 function Empty() {
     return (
-        <div className='flex h-min-screen'>
+        <div className='wholePage h-full'>
+            {/* <div className='leftSide'>
             <Slidebar />
-            <div className='w-5/6'>
+            </div> */}
+            <div className='rightSide w-full '>
                 {/* main div */}
                 <div className='flex items-center justify-between text-start ms-9 mt-5'>
                     <h1>Welcome, Jon</h1>
@@ -40,10 +64,94 @@ function Empty() {
                     </div>
                 </div>
                 <div className='mt-5 ms-5 grid grid-cols-2 gap-4'>
-                    <Box title="Employee contribution" img="gift.svg" valueT="$1,520" valueL="$1,520" avg="contribution" h6='Receivers' />
-                    <Box title="Total amount saved" img="amt_saved.svg" valueT="$1,520" valueL="$1,520" avg='savings' h6='Total no of savers' />
-                    <Box title="Total round-ups value" img="arrow_up.svg" valueT="$1,520" valueL="$1,520" avg='round-ups' h6='Total no of transection' />
-                    <Box title="Total cash-back value" img="cash_back.svg" valueT="$1,520" valueL="$1,520" avg="cash-back" h6='Total no of transection' />
+                    <Box title="Employee contribution" img="gift.svg" valueT="$1,520" valueL="$1,520" avg="contribution" h6='Receivers' chart={
+                        <ChartContainer 
+                        width={800}
+                        height={300}
+                        series={[{ data: box1Data, label: 'uv', type: 'bar' }]}
+                        xAxis={[{ scaleType: 'band', data: box1Labels }]}
+                        sx={{
+                            '.MuiBarElement-root': {
+                              stroke: 'rgb(56 133 123 /1)',
+                              strokeWidth: 0,
+                            },
+                        }}
+                      >
+                        <BarPlot />
+                      </ChartContainer>
+                    } />
+                    <Box title="Total amount saved" img="amt_saved.svg" valueT="$1,520" valueL="$1,520" avg='savings' h6='Total no of savers' chart={
+                        <ChartContainer
+                        width={800}
+                        height={300}
+                        series={[{ type: 'line', data: box2Data }]}
+                        xAxis={[{ scaleType: 'point', data: box2Labels }]}
+                        sx={{
+                          '.MuiLineElement-root': {
+                            stroke: 'rgb(56 133 123 /1)',
+                            strokeWidth: 3,
+                          },
+                          '.MuiMarkElement-root': {
+                            stroke: 'tomato',
+                            scale: '1.5',
+                            fill: '#fff',
+                            strokeWidth: 2,
+                          },
+                        }}
+                        disableAxisListener
+                      >
+                        <LinePlot />
+                        <MarkPlot />
+                      </ChartContainer>
+                    } />
+                    <Box title="Total round-ups value" img="arrow_up.svg" valueT="$1,520" valueL="$1,520" avg='round-ups' h6='Total no of transection'  chart={
+                        <ChartContainer
+                        width={800}
+                        height={300}
+                        series={[{ type: 'line', data: box2Data }]}
+                        xAxis={[{ scaleType: 'point', data: box2Labels }]}
+                        sx={{
+                          '.MuiLineElement-root': {
+                            stroke: 'rgb(56 133 123 /1)',
+                            strokeWidth: 3,
+                          },
+                          '.MuiMarkElement-root': {
+                            stroke: 'tomato',
+                            scale: '1.5',
+                            fill: '#fff', 
+                            strokeWidth: 2,
+                          },
+                        }}
+                        disableAxisListener
+                      >
+                        <LinePlot />
+                        <MarkPlot />
+                      </ChartContainer>
+                    }/>
+                    <Box title="Total cash-back value" img="cash_back.svg" valueT="$1,520" valueL="$1,520" avg="cash-back" h6='Total no of transection'  chart={
+                        <ChartContainer
+                        width={800}
+                        height={300}
+                        series={[{ type: 'line', data: box2Data }]}
+                        xAxis={[{ scaleType: 'point', data: box2Labels }]}
+                        sx={{
+                          '.MuiLineElement-root': {
+                            stroke: 'rgb(56 133 123 /1)',
+                            strokeWidth: 3,
+                          },
+                          '.MuiMarkElement-root': {
+                            stroke: 'tomato',
+                            scale: '1.5',
+                            fill: '#fff',
+                            strokeWidth: 2,
+                          },
+                        }}
+                        disableAxisListener
+                      >
+                        <LinePlot />
+                        <MarkPlot />
+                      </ChartContainer>
+                    }/>
                 </div>
                 <div className='items-center justify-between text-start ms-9 mt-5'>
                     {/* ... your active offers section ... */}
