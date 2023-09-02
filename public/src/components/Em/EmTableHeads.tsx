@@ -50,7 +50,7 @@ export default function EmTableHeads(props: any) {
                                 </a>
                             </th>
 
-                            <th className='w-1/4' style={{ color: '#25384D',marginLeft:"60%" }}>Overall progress</th>
+                            <th className='w-1/4' style={{ color: '#25384D'}}>Overall progress</th>
                             <th className='w-1/2'></th>
                         </tr>
                     </thead>
