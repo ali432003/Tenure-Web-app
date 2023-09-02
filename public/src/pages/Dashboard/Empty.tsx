@@ -120,7 +120,8 @@ function Empty() {
                       >
                         <BarPlot />
                       </ChartContainer>
-                    } />
+                    }
+                     />
                     <Box title="Total amount saved" img="amt_saved.svg" valueT="$1,520" valueL="$1,520" avg='savings' h6='Total no of savers' chart={
                         <ChartContainer
                         width={800}

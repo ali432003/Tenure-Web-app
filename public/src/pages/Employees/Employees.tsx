@@ -300,7 +300,8 @@ export default function Employees() {
         { img: "eden.svg", name: "Eden Garden", goal: "$750" },
         { img: "gabi.svg", name: "Gabi Cunha", goal: "$600" },
         { img: "ronald.svg", name: "Ronald Christian", goal: "$560" },
-        { img: "lionel.svg", name: "Lionel Richmond", goal: "$400" }
+        { img: "lionel.svg", name: "Lionel Richmond", goal: "$400" },
+
     ];
 
 
@@ -421,7 +422,6 @@ export default function Employees() {
     };
     return (
         <div className='flex h-full'>
-            {/* <Slidebar /> */}
             <div className='w-full ms-5'>
                 <div className='flex items-center justify-between text-start ms-4 mt-5'>
                     <h1>Employees</h1>
@@ -459,7 +459,7 @@ export default function Employees() {
                     </table>
                 </div>
 
-                <div className='h-40'></div>
+                {/* <div className='h-40'></div> */}
             </div>
         </div>
     )
