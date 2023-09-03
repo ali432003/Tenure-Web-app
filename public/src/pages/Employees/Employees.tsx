@@ -301,24 +301,24 @@ export default function Employees() {
 
     ];
     const dataOfMain = [
-        { img: "jon.svg", name: "Jon Snow", goal: "New car, First home, Vacation, Engagament ring",prog:"40%" },
-        { img: "vinn.svg", name: "Vinn Isuis", goal: "Vacation",prog:"40%" },
-        { img: "rodd.svg", name: "Rodd Rigo", goal: "Mortgage, Birthday shopping",prog:"40%" },
-        { img: "sam.svg", name: "Sam Anther", goal: "Rent, New car, New TV",prog:"40%" },
-        { img: "eden.svg", name: "Eden Garden", goal: "Family vacation, Greece trip",prog:"40%" },
-        { img: "gabi.svg", name: "Gabi Cunha", goal: "Birthday party",prog:"40%" },
-        { img: "ronald.svg", name: "Ronald Christian", goal: "New car, Vacation, Christmas shopping",prog:"40%" },
-        { img: "lionel.svg", name: "Lionel Richmond", goal: "Summer party",prog:"40%" }
+        { img: "jon.svg", name: "Jon Snow", goal: "New car, First home, Vacation, Engagament ring", prog: "40%" },
+        { img: "vinn.svg", name: "Vinn Isuis", goal: "Vacation", prog: "40%" },
+        { img: "rodd.svg", name: "Rodd Rigo", goal: "Mortgage, Birthday shopping", prog: "40%" },
+        { img: "sam.svg", name: "Sam Anther", goal: "Rent, New car, New TV", prog: "40%" },
+        { img: "eden.svg", name: "Eden Garden", goal: "Family vacation, Greece trip", prog: "40%" },
+        { img: "gabi.svg", name: "Gabi Cunha", goal: "Birthday party", prog: "40%" },
+        { img: "ronald.svg", name: "Ronald Christian", goal: "New car, Vacation, Christmas shopping", prog: "40%" },
+        { img: "lionel.svg", name: "Lionel Richmond", goal: "Summer party", prog: "40%" }
     ];
     const dataOfRecie = [
-        { img: "jon.svg", name: "Jon Snow", goal: "$1,340.56",prog:"40%" },
-        { img: "vinn.svg", name: "Vinn Isuis", goal: "$1,200",prog:"40%" },
-        { img: "rodd.svg", name: "Rodd Rigo", goal: "$1,000",prog:"40%" },
-        { img: "sam.svg", name: "Sam Anther", goal: "$800",prog:"40%" },
-        { img: "eden.svg", name: "Eden Garden", goal: "$750",prog:"40%" },
-        { img: "gabi.svg", name: "Gabi Cunha", goal: "$600",prog:"40%" },
-        { img: "ronald.svg", name: "Ronald Christian", goal: "$560",prog:"40%" },
-        { img: "lionel.svg", name: "Lionel Richmond", goal: "$400",prog:"40%" }
+        { img: "jon.svg", name: "Jon Snow", goal: "$1,340.56", prog: "40%" },
+        { img: "vinn.svg", name: "Vinn Isuis", goal: "$1,200", prog: "40%" },
+        { img: "rodd.svg", name: "Rodd Rigo", goal: "$1,000", prog: "40%" },
+        { img: "sam.svg", name: "Sam Anther", goal: "$800", prog: "40%" },
+        { img: "eden.svg", name: "Eden Garden", goal: "$750", prog: "40%" },
+        { img: "gabi.svg", name: "Gabi Cunha", goal: "$600", prog: "40%" },
+        { img: "ronald.svg", name: "Ronald Christian", goal: "$560", prog: "40%" },
+        { img: "lionel.svg", name: "Lionel Richmond", goal: "$400", prog: "40%" }
     ];
 
 
@@ -337,7 +337,7 @@ export default function Employees() {
         catimg: string,
         catCol: string,
         cat: string,
-        
+
     };
     const filteredRows = dataOfPurch.filter((item: Item) => selectedCategory === 'all' || item.category === selectedCategory);
 
@@ -362,7 +362,7 @@ export default function Employees() {
                                 key={index}
                                 img={item.img}
                                 name={item.name}
-                                progress = {item.prog} //for overall progress
+                                progress={item.prog} //for overall progress
                                 goal={item.goal}
                             />
                         ))}
@@ -387,7 +387,7 @@ export default function Employees() {
                                 key={index}
                                 img={item.img}
                                 name={item.name}
-                                progress = {item.prog} //for overall progress
+                                progress={item.prog} //for overall progress
                                 goal={item.goal}
                             />
                         ))}
@@ -533,8 +533,8 @@ export default function Employees() {
                                     <img src="src/assets/icons/CSV_file.svg" alt="" className='m-auto mb-3' />
                                     Upload a CSV file with your employee details
                                 </div>
-                                <div className='w-full' style={{ backgroundColor: "#8AAEC9", height: "1px", position: "relative" }}>
-                                    <div className='-mt-2 px-2' style={{ backgroundColor: "white", color: "#8AAEC9", position: "absolute", marginLeft: "200px" }}>
+                                <div className='w-full relative' style={{ backgroundColor: "#8AAEC9", height: "1px" }}>
+                                    <div className='-mt-2 px-2 absolute left-48' style={{ backgroundColor: "white", color: "#8AAEC9" }}>
                                         OR
                                     </div>
                                 </div>
@@ -542,14 +542,16 @@ export default function Employees() {
                                     <input type="text" placeholder='Enter employee name' className='my-3 rounded-lg' />
                                     <input type="email" name="" placeholder='Enter employee email' className='my-3 rounded-lg' id="" />
                                     <input type="date" name="" placeholder='Enter employee birthday' id="" className='my-3 rounded-lg' />
-                                    <input type="search" name="" placeholder='Enter employee location (min. 3 characters)' id="" className='my-3 rounded-lg' /><img src="src/assets/icons/search.svg" alt="" style={{ position: "absolute", transform: "translate(400px,220px)" }} />
+                                    <div className=' relative'>
+                                        <input type="search" name="" placeholder='Enter employee location (min. 3 characters)' id="" className='my-3 py-2 rounded-lg w-full' /><img src="src/assets/icons/search.svg" alt="" className='absolute bottom-4 right-2 cursor-pointer' />
+                                    </div>
                                 </div>
                                 <div className='flex justify-end mt-3'>
-                                    <img src="src/assets/icons/add_1.svg" className='mx-2'/>
-                                    <span style={{color:"#38857B",fontWeight:"700"}}>Add Another Employee</span>
+                                    <img src="src/assets/icons/add_1.svg" className='mx-2' />
+                                    <span style={{ color: "#38857B", fontWeight: "700" }}>Add Another Employee</span>
                                 </div>
                                 <div className="flex justify-center mt-4">
-                                <button className='p-2 rounded-md cursor-pointer' style={{ backgroundColor: "#38857B", color: "white", fontWeight: "600" }}>Submit</button>
+                                    <button className='p-2 rounded-md cursor-pointer' style={{ backgroundColor: "#38857B", color: "white", fontWeight: "600" }}>Submit</button>
                                     <button onClick={addEmCl} className='mx-3 p-2 rounded-md cursor-pointer' style={{ border: "1px solid #38857B", color: "#38857B", fontWeight: "600" }}>Cancel</button>
                                 </div>
                             </Box>
@@ -617,21 +619,21 @@ const style = (theme: Theme) => ({
     padding: '16px 32px 24px 32px',
     backgroundColor: 'white',
     color: "black",
-                                    boxShadow: `0px 2px 24px ${theme.palette.mode === 'dark' ? '#000' : '#383838'}`,
+    boxShadow: `0px 2px 24px ${theme.palette.mode === 'dark' ? '#000' : '#383838'}`,
 });
 const style2 = (theme: Theme) => ({
-                                        width: 500,
-                                    borderRadius: '12px',
-                                    padding: '16px 32px 24px 32px',
-                                    backgroundColor: 'white',
-                                    color: "black",
-                                    boxShadow: `0px 2px 24px ${theme.palette.mode === 'dark' ? '#000' : '#383838'}`,
+    width: 500,
+    borderRadius: '12px',
+    padding: '16px 32px 24px 32px',
+    backgroundColor: 'white',
+    color: "black",
+    boxShadow: `0px 2px 24px ${theme.palette.mode === 'dark' ? '#000' : '#383838'}`,
 });
 const style3 = (theme: Theme) => ({
-                                        width: 500,
-                                    borderRadius: '12px',
-                                    padding: '16px 32px 24px 32px',
-                                    backgroundColor: 'white',
-                                    color: "black",
-                                    boxShadow: `0px 2px 24px ${theme.palette.mode === 'dark' ? '#000' : '#383838'}`,
+    width: 500,
+    borderRadius: '12px',
+    padding: '16px 32px 24px 32px',
+    backgroundColor: 'white',
+    color: "black",
+    boxShadow: `0px 2px 24px ${theme.palette.mode === 'dark' ? '#000' : '#383838'}`,
 });

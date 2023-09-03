@@ -34,8 +34,8 @@ function Slidebar() {
                         <img src="src/assets/icons/settings_2.svg" className='mr-4' alt="" />Settings</Link>
                 </div>
                 <div className='pb-1'>
-                    <Link to="/Logout" className='text-white font-semibold text-center text-lg p-3 transition-colors flex items-center ms-4'>
-                        <img src="src/assets/icons/logout_2.svg" className='mr-4' alt="" />Logout</Link>
+                    <a className='text-white font-semibold text-center text-lg p-3 transition-colors flex items-center ms-4'>
+                        <img src="src/assets/icons/logout_2.svg" className='mr-4' alt="" />Logout</a>
                 </div>
             </div>
         </div>

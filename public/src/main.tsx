@@ -22,7 +22,7 @@ import Employees from './pages/Employees/Employees.tsx';
 import Deals from './pages/Deals/Deals.tsx';
 import Wallet from './pages/Wallet/Wallet.tsx';
 import Settings from './pages/Settings/Settings.tsx';
-import Logout from './pages/Logout/Logout.tsx';
+
 
 
 
@@ -79,10 +79,7 @@ const router = createBrowserRouter([
     path: '/Settings',
     element:  <Settings />,
   },
-  {
-    path: '/Logout',
-    element:  <Logout />,
-  },
+  
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
