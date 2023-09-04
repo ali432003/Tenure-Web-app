@@ -154,7 +154,7 @@ export default function EmTableRows(props: any) {
                         </td>
                         {/* conditionally rendered on hover */}
                         <td>
-                            <div style={{ backgroundColor: "#DCEDF6", width: '50%' }} className='h-5 ms-12 rounded-3xl'>
+                            <div style={{ backgroundColor: "#DCEDF6", width: '50%' }} className='h-4 ms-12 rounded-3xl'>
                                 <div className=' rounded-2xl h-full' style={{ backgroundColor: "#38857B", width: props.progress }}></div>
                             </div>
                         </td>
