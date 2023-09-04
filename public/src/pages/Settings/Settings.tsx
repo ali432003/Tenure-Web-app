@@ -10,13 +10,4 @@ export default function Deals() {
 )
 
 
-  return (
-    <div className='flex h-min-screen'>
-        <Slidebar/>
-        <div className='w-5/6'>
-            Settings
-        </div>
-      
-    </div>
-  )
 }

@@ -7,7 +7,8 @@ import './Employee.css'
 import clsx from 'clsx';
 import { styled, Box, Theme } from '@mui/system';
 import { Modal } from '@mui/base/Modal';
-
+import {  useFormik } from 'formik';
+import * as yup from 'yup';
 
 
 export default function Employees() {
@@ -439,9 +440,45 @@ export default function Employees() {
         }
 
     };
+    const formik = useFormik({
+        initialValues: {
+          amount:''
+        },
+        validationSchema: yup.object().shape({
+            amount: yup
+        .string()
+        .required('Amount is required')
+        .test('valid-integer', 'Amount must be an integer', (value) => {
+          if (value === undefined || value === null || value === '') {
+            return false; // Allow empty values
+          }
+          return Number.isInteger(Number(value));
+        }),
+        }),
+        onSubmit: (values,{resetForm}) => {
+        resetForm();
+        giftAllEmCl()
+        },
+      });
+
+      const formik2 = useFormik({
+        initialValues: {
+            Title: '',
+            Details: '',
+        },
+        validationSchema: yup.object().shape({
+            Title: yup.string().required('This field is required'),
+            Details: yup.string().required('This field is required'),
+        }),
+        onSubmit: (values,{resetForm,}) => {
+        resetForm();
+        sendANotCl()
+        },
+      });
+
+
     return (
-        <div className='flex h-full'>
-            <div className='w-full ms-5'>
+            <div className='w-full ms-5 h-full'>
                 <div className='flex items-center justify-between text-start ms-4 mt-5'>
                     <h1>Employees</h1>
                 </div>
@@ -466,7 +503,7 @@ export default function Employees() {
                             aria-labelledby="unstyled-modal-title"
                             aria-describedby="unstyled-modal-description"
                             open={open}
-                            onClose={giftAllEmCl}
+                            
                             slots={{ backdrop: StyledBackdrop }}
                         >
                             <Box sx={style}>
@@ -476,16 +513,31 @@ export default function Employees() {
                                 <div className='text-center my-9'>
                                     <h2 className='capitalize' style={{ color: "#25384D" }}>gift all employees</h2>
                                 </div>
+                                <form onSubmit={formik.handleSubmit}>
                                 <div className='text-start'>
                                     <h4 className='my-2' style={{ color: "#25384D", fontWeight: "700" }}>Amount to gift each employee</h4>
                                     <span style={{ color: "#38857B", fontWeight: "700" }}>Wallet balance: $3,000</span>
-                                    <input className='rounded-lg w-full mt-2' type="text" placeholder='enter an amount' />
+                                    
+                                    <input
+                                    name="amount"
+                                    value={formik.values.amount}
+                                    onChange={formik.handleChange}
+                                    onBlur={formik.handleBlur} 
+                                    className='rounded-lg w-full mt-2 mb-2' type="text" placeholder='enter an amount' 
+                                    />
+                                     {formik.touched.amount && formik.errors.amount ? (
+                                    <div className="text-start  mb-4 peer-invalid:visible text-danger-500 text-sm">
+                                        {formik.errors.amount}
+                                    </div>
+                                    ) : null}
                                 </div>
+                                
                                 <div className="flex place-content-center mt-4">
-                                    <button className='p-2 rounded-md cursor-pointer' style={{ backgroundColor: "#38857B", color: "white", fontWeight: "600" }}>Gift Employees</button>
+                                    <button type='submit' className='p-2 rounded-md cursor-pointer' style={{ backgroundColor: "#38857B", color: "white", fontWeight: "600" }}>Gift Employees</button>
                                     <button className='mx-3 p-2 rounded-md cursor-pointer' onClick={giftAllEmCl} style={{ border: "1px solid #38857B", color: "#38857B", fontWeight: "600" }}>Cancel</button>
+                                    
                                 </div>
-
+                                </form>
                             </Box>
                         </StyledModal>
 
@@ -494,7 +546,7 @@ export default function Employees() {
                             aria-labelledby="unstyled-modal-title"
                             aria-describedby="unstyled-modal-description"
                             open={open2}
-                            onClose={sendANotCl}
+                            
                             slots={{ backdrop: StyledBackdrop }}
                         >
                             <Box sx={style2}>
@@ -502,14 +554,35 @@ export default function Employees() {
                                     <img src="src/assets/icons/cross69.svg" className='cursor-pointer' onClick={sendANotCl} alt="" />
                                 </div>
                                 <h3 className='text-center mt-6' style={{ color: "#25384D", fontWeight: "700" }}>Send A Notification</h3>
+                                <form onSubmit={formik2.handleSubmit}>
                                 <div>
-                                    <input type="text" placeholder='Enter a Title' className='w-full rounded-lg my-4' />
-                                    <textarea name="" placeholder='Enter Details' className='w-full rounded-lg my-2' cols={10} rows={3}></textarea>
+                                    <input type="text" placeholder='Enter a Title' className='w-full rounded-lg my-2'
+                                    name="Title"
+                                    value={formik2.values.Title}
+                                    onChange={formik2.handleChange}
+                                    onBlur={formik2.handleBlur}
+                                    />
+                                    {formik2.touched.Title && formik2.errors.Title ? (
+                                        <div className="text-start  mb-4 peer-invalid:visible text-danger-500 text-sm">
+                                            {formik2.errors.Title}
+                                        </div>
+                                        ) : null}
+                                    <textarea name="Details" placeholder='Enter Details' className='w-full rounded-lg my-2' cols={10} rows={3}
+                                    value={formik2.values.Details}
+                                    onChange={formik2.handleChange}
+                                    onBlur={formik2.handleBlur}                                    
+                                    ></textarea>
+                                    {formik2.touched.Details && formik2.errors.Details ? (
+                                        <div className="text-start  mb-4 peer-invalid:visible text-danger-500 text-sm">
+                                            {formik2.errors.Details}
+                                        </div>
+                                        ) : null}
                                 </div>
                                 <div className='flex justify-center'>
-                                    <button className='p-2 rounded-md cursor-pointer' style={{ backgroundColor: "#38857B", color: "white", fontWeight: "600" }}>Send</button>
+                                    <button type='submit' className='p-2 rounded-md cursor-pointer' style={{ backgroundColor: "#38857B", color: "white", fontWeight: "600" }}>Send</button>
                                     <button onClick={sendANotCl} className='mx-3 p-2 rounded-md cursor-pointer' style={{ border: "1px solid #38857B", color: "#38857B", fontWeight: "600" }}>Cancel</button>
                                 </div>
+                                </form>
                             </Box>
                         </StyledModal>
 
@@ -519,7 +592,7 @@ export default function Employees() {
                             aria-labelledby="unstyled-modal-title"
                             aria-describedby="unstyled-modal-description"
                             open={open3}
-                            onClose={addEmCl}
+                           
                             slots={{ backdrop: StyledBackdrop }}
                         >
                             <Box sx={style3}>
@@ -571,7 +644,7 @@ export default function Employees() {
 
                 {/* <div className='h-40'></div> */}
             </div>
-        </div>
+  
     )
 }
 

@@ -12,7 +12,7 @@ export default function Deals() {
   )
 
   return (
-    <div className='flex h-min-screen'>
+    <div className='flex h-full'>
         {/* <Slidebar/> */}
         <div className='w-full'>
             {/* Deals */}

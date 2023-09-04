@@ -32,9 +32,9 @@ export default function App() {
         <Route path="/OnBoarding2" element={<Step2 />} />
         <Route path="/OnBoarding3" element={<Step3 />} />
         <Route path="/OnBoarding4" element={<Step4_dc />} />
-        <Route
+        <Route 
           path="/*"
-          element={<Layout />}
+          element={<Layout />  }
         />
       </Routes>
     </Router>
