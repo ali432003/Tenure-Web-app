@@ -22,6 +22,8 @@ import Employees from './pages/Employees/Employees.tsx';
 import Deals from './pages/Deals/Deals.tsx';
 import Wallet from './pages/Wallet/Wallet.tsx';
 import Settings from './pages/Settings/Settings.tsx';
+import CreateANewDeal from './pages/Deals/CreateANewDeal/CreateANewDeal.tsx';
+import CatDetails from './components/CatDetails/CatDetails.tsx';
 
 
 
@@ -78,6 +80,14 @@ const router = createBrowserRouter([
   {
     path: '/Settings',
     element:  <Settings />,
+  },
+  {
+    path: '/CreateANewDeal',
+    element:  <CreateANewDeal />,
+  },
+  {
+    path: '/CatDetails',
+    element:  <CatDetails />,
   },
   
 ]);

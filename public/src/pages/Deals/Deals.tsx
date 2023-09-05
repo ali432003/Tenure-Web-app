@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import Slidebar from '../../components/Slidebar/Slidebar'
 import '../Employees/Employee.css'
+import { Link } from 'react-router-dom';
+import CreateANewDeal from './CreateANewDeal/CreateANewDeal';
 
 export default function Deals() {
   const filterByCategory = (category: string) => {
