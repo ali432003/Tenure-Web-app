@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import '../Employees/Employee.css';
 import EmTableHeads from '../../components/Em/EmTableHeads';
 import EmTableRows from '../../components/Em/EmTableRows';
+import { Link } from 'react-router-dom';
+import CreateANewDeal from './CreateANewDeal/CreateANewDeal';
 
 export default function Deals() {
   const filterByCategory = (category: string) => {
