@@ -20,8 +20,6 @@ export default function Layout() {
           <Route path="/Deals" element={<Deals />} />
           <Route path="/Wallet" element={<Wallet />} />
           <Route path="/Settings" element={<Settings />} />
-          {/* <Route path="/Reciever" element={<Reciever />} /> */}
-          {/* <Route path="/Purchase" element={<Purchase />} /> */}
         </Routes>
       </div>
     </div>

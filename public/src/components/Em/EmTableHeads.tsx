@@ -12,6 +12,7 @@ export default function EmTableHeads(props: any) {
     var shouldShowPurchase;
     var shouldShowReceiver;
     var shouldShowDashHeads;
+    var shouldShowDealsHead;
     if (props.hkey === 'main') {
         shouldShowMain = true;
         shouldShowPurchase = false;
@@ -32,6 +33,13 @@ export default function EmTableHeads(props: any) {
         shouldShowPurchase = false;
         shouldShowReceiver = false;
         shouldShowDashHeads = true;
+    }
+    if (props.rkey === 'Employee Deals') {
+        shouldShowMain = false;
+        shouldShowPurchase = false;
+        shouldShowReceiver = false;
+        shouldShowDashHeads = false;
+        shouldShowDealsHead = true;
     }
     return (
         <>
@@ -63,9 +71,9 @@ export default function EmTableHeads(props: any) {
                     <thead>
                         <tr className='bg-white-600 shadow-lg my-4'>
                             <th className='text-start w-1/4 p-4' style={{ color: '#25384D' }}>Employee</th>
-                            <th className='text-start w-1/4' style={{ color: '#25384D' }}>Overall progress</th>
-                            <th className='w-1/4 text-start' style={{ color: '#25384D' }}>Total contributions received</th>
-                            <th className='w-1/4'></th>
+                            <th className='text-center w-1/4' style={{ color: '#25384D' }}>Overall progress</th>
+                            <th className='w-1/4 text-center' style={{ color: '#25384D' }}>Total contributions received</th>
+                            <th className='w-1/6'></th>
                         </tr>
                     </thead>
                 </>
@@ -102,7 +110,34 @@ export default function EmTableHeads(props: any) {
                 </>
             )}
 
+        {
+            props.hkey ==="Employee Deals" && (
+                <>
+                <thead>
+                    <tr className='bg-white-600 shadow-lg my-4'>
+                        <th className='text-start w-1/4 p-4' style={{ color: '#25384D' }}>Brand</th>
+                        <th className='text-start' style={{ color: '#25384D' }}>Offer Title</th>
+                        <th className='  text-start w-1/5' style={{ color: '#25384D' }}>Expiray-Date</th>
+                        <th className='  text-start' style={{ color: '#25384D' }}>Category</th>
+                    </tr>
+                </thead>
+            </> 
+            )
+        }
 
+        {
+            props.hkey ==='DealsCreated' &&(
+                <thead>
+                <tr className='bg-white-600 shadow-lg my-4'>
+                    <th className='text-start w-1/4 p-4' style={{ color: '#25384D' }}>Brand</th>
+                    <th className='text-start' style={{ color: '#25384D' }}>Offer Title</th>
+                    <th className='  text-start w-1/5' style={{ color: '#25384D' }}>Expiray-Date</th>
+                    <th className='  text-start' style={{ color: '#25384D' }}>Category</th>
+                    <th className='w-1/4'></th>
+                </tr>
+            </thead>
+            )
+        }
         </>
     );
 }

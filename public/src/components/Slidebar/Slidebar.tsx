@@ -6,7 +6,6 @@ import { Link,useLocation  } from 'react-router-dom'
 function Slidebar() {
 
 let location = useLocation();
-console.log(location.pathname)
 
 return (
     <div className='h-full' style={{ backgroundColor: "rgb(56 133 123 /1)", color: 'white' }}>
