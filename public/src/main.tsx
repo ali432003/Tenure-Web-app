@@ -24,6 +24,7 @@ import Wallet from './pages/Wallet/Wallet.tsx';
 import Settings from './pages/Settings/Settings.tsx';
 import CreateANewDeal from './pages/Deals/CreateANewDeal/CreateANewDeal.tsx';
 import CatDetails from './components/CatDetails/CatDetails.tsx';
+import Edit from './pages/Wallet/Edit/Edit.tsx';
 
 
 
@@ -88,6 +89,10 @@ const router = createBrowserRouter([
   {
     path: '/CatDetails',
     element:  <CatDetails />,
+  },
+  {
+    path: '/Edit',
+    element:  <Edit />,
   },
   
 ]);

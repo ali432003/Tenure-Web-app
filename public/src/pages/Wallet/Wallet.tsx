@@ -3,8 +3,28 @@ import Slidebar from '../../components/Slidebar/Slidebar'
 import EmTableHeads from '../../components/Em/EmTableHeads';
 import EmTableRows from '../../components/Em/EmTableRows';
 import Tippy from '@tippyjs/react';
+import clsx from 'clsx';
+import { styled, Box, Theme } from '@mui/system';
+import { TextField } from '@mui/material';
+import { Modal } from '@mui/base/Modal';
+import { useNavigate } from 'react-router-dom';
 
 export default function Wallet(props: any) {
+  const navigate = useNavigate(); // Initialize the navigate function
+  const navigateToEditCard = () => {
+    navigate('/Edit'); // Replace '/cat-details' with the actual path to your CatDetails page
+  };
+  
+  // edit reward budget
+  const [open2, setOpen2] = useState(false);
+  const sendANotOp = () => setOpen2(true);
+  const sendANotCl = () => setOpen2(false);
+
+  const [openR, setOpenR] = useState(false);
+    const handleOpenR = () => setOpenR(true);
+    const handleCloseR = () => setOpenR(false);
+
+
   const filterByCategory = (category: string) => {
     setSelectedCategory(category);
   };
@@ -27,7 +47,30 @@ export default function Wallet(props: any) {
                 </div>
                 <div className='flex cursor-pointer'>
                   <img src="src/assets/icons/edit.svg" className='mr-2' alt="" />
-                  <span>Edit Rewards Budget</span>
+                  <span onClick={sendANotOp}>Edit Rewards Budget</span>
+                  {/* edit reward budget */}
+                  <StyledModal
+                            aria-labelledby="unstyled-modal-title"
+                            aria-describedby="unstyled-modal-description"
+                            open={open2}
+                            onClose={sendANotCl}
+                            slots={{ backdrop: StyledBackdrop }}
+                        >
+                            <Box sx={style2}>
+                                <div className='flex justify-end'>
+                                    <img src="src/assets/icons/cross69.svg" className='cursor-pointer' onClick={sendANotCl} alt="" />
+                                </div>
+                                <h3 className='text-center mt-6' style={{ color: "#25384D", fontWeight: "700" }}>Edit Reward Budget</h3>
+                                <div className='my-2'>
+                                    <TextField type="text" label='$ Current budget' sx={{width:1, marginY:1}} />
+                                </div>
+                                <div className='flex justify-center'>
+                                    <button className='p-2 rounded-md cursor-pointer' style={{ backgroundColor: "#38857B", color: "white", fontWeight: "600" }}>Done</button>
+                                    <button onClick={sendANotCl} className='mx-3 p-2 rounded-md cursor-pointer' style={{ border: "1px solid #38857B", color: "#38857B", fontWeight: "600" }}>Cancel</button>
+                                </div>
+                            </Box>
+                        </StyledModal>
+
                 </div>
               </div>
               <div className="flex justify-between mt-7">
@@ -69,12 +112,32 @@ export default function Wallet(props: any) {
                   </div>
                 </div>
                 <div className='flex p-2'>
-                  <Tippy content={<span>Edit</span>} placement='bottom' animation="scale">
-                    <a className='rounded me-3 button cursor-pointer px-3 py-3' style={{ backgroundColor: 'rgba(28, 92, 95, 1)' }}><img src="src/assets/icons/edit.svg" style={{ filter: 'brightness(900%)' }} alt="" /></a>
+                  <Tippy content={<span>Edit this card</span>} placement='bottom' animation="scale">
+                    <a onClick={navigateToEditCard} className='rounded me-3 button cursor-pointer px-3 py-3' style={{ backgroundColor: 'rgba(28, 92, 95, 1)' }}><img src="src/assets/icons/edit.svg" style={{ filter: 'brightness(900%)' }} alt="" /></a>
                   </Tippy>
-                  <Tippy content={<span>Remove</span>} placement='bottom' animation="scale">
-                    <a style={{ border: '1px solid rgb(210, 66, 82)' }} className='cross px-3 py-3 rounded hover:bg-red-100 cursor-pointer'><img src="src/assets/icons/close.svg" alt="" /></a>
+                  <Tippy content={<span>Remove this card</span>} placement='bottom' animation="scale">
+                    <a onClick={handleOpenR} style={{ border: '1px solid rgb(210, 66, 82)' }} className='cross px-3 py-3 rounded hover:bg-red-100 cursor-pointer'><img src="src/assets/icons/close.svg" alt="" /></a>
                   </Tippy>
+                  <StyledModal
+                        aria-labelledby="unstyled-modal-title"
+                        aria-describedby="unstyled-modal-description"
+                        open={openR}
+                        onClose={handleCloseR}
+                        slots={{ backdrop: StyledBackdrop }}
+                    >
+                        <Box sx={style2}>
+                            <div className='py-4'>
+                                <div className='flex justify-end'>
+                                    <img src="src/assets/icons/cross69.svg" onClick={handleCloseR} className='cursor-pointer' alt="" />
+                                </div>
+                                <p className='text-center mt-6 mb-2' style={{ color: "#25384D" }}>Are you sure you want to delete this card?</p>
+                                <div className='flex place-content-center mt-4'>
+                                    <button className='p-2 rounded-md' style={{ border: "1px solid #D24252", color: "#D24252", fontWeight: "600" }}>Yes, remove</button>
+                                    <button onClick={handleCloseR} className='mx-2 rounded-md p-2' style={{ backgroundColor: "#38857B", color: "#FFFFFF", fontWeight: "600" }}>No, don’t remove</button>
+                                </div>
+                            </div>
+                        </Box>
+                    </StyledModal>
                 </div>
               </div>
               <div className='flex justify-between border mx-3 rounded-lg p-2 my-3'>
@@ -187,3 +250,49 @@ export default function Wallet(props: any) {
     </div>
   )
 }
+
+const Backdrop = React.forwardRef<
+    HTMLDivElement,
+    { open?: boolean; className: string }
+>((props, ref) => {
+    const { open, className, ...other } = props;
+    return (
+        <div
+            className={clsx({ 'MuiBackdrop-open': open }, className)}
+            ref={ref}
+            {...other}
+        />
+    );
+});
+
+
+
+
+
+const StyledModal = styled(Modal)`
+  position: fixed;
+  z-index: 1300;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+`;
+
+const StyledBackdrop = styled(Backdrop)`
+  z-index: -1;
+  position: fixed;
+  inset: 0;
+  background-color: rgb(0 0 0 / 0.5);
+  -webkit-tap-highlight-color: transparent;
+`;
+
+
+const style2 = (theme: Theme) => ({
+  width: 500,
+  borderRadius: '12px',
+  padding: '16px 32px 24px 32px',
+  backgroundColor: 'white',
+  color: "black",
+  boxShadow: `0px 2px 24px ${theme.palette.mode === 'dark' ? '#000' : '#383838'}`,
+});
