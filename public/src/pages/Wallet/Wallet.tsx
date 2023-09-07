@@ -121,24 +121,57 @@ export default function Wallet(props: any) {
           </div>
 
           <div className='mt-9 flex justify-end mb-5'>
-            <div className='mr-56'>
+            <div className='mr-56' id='main'>
               <div dir='rtl'>
-                <button style={{ position: 'absolute' }} className='border-2 border-solid rounded-lg p-2 -mt-2 ms-11'>
+                <button style={{ position: 'absolute' }} className='border-2 border-solid rounded-lg p-2 -mt-2 mr-16'>
                   <img src="src/assets/icons/chevron_left.svg" alt="" />
                 </button>
               </div>
-              <h4>June, 2023</h4>
+              <h4 id='change'>June, 2023</h4>
               <div dir='ltr'>
-                <button style={{ position: 'absolute' }} className='border-2 border-solid rounded-lg p-2 -mt-8 ms-11'>
+                <button style={{ position: 'absolute' }} className='border-2 border-solid rounded-lg p-2 -mt-8 ml-16'>
                   <img src="src/assets/icons/chevron_right.svg" alt="" />
                 </button>
               </div>
             </div>
             <ul className='flex justify-end mb-5 -mt-1'>
-              <li className={`${selectedCategory === 'monthly' ? 'active' : ''} list-none rounded-lg p-2 cursor-pointer mx-2`} onClick={() => filterByCategory('monthly')}><a>Monthly</a></li>
-              <li className={`${selectedCategory === 'weekly' ? 'active' : ''} list-none rounded-lg p-2 cursor-pointer mx-2`} onClick={() => filterByCategory('weekly')}><a>Weekly</a></li>
-              <li className={`${selectedCategory === 'daily' ? 'active' : ''} list-none rounded-lg p-2 cursor-pointer mx-2`} onClick={() => filterByCategory('daily')}><a>Daily</a></li>
-              <li className={`${selectedCategory === 'alltime' ? 'active' : ''} list-none rounded-lg p-2 cursor-pointer mx-2`} onClick={() => filterByCategory('alltime')}><a>All time</a></li>
+              <li className={`${selectedCategory === 'monthly' ? 'active' : ''} list-none rounded-lg p-2 cursor-pointer mx-2`} onClick={() => {
+                let ch = document.getElementById('change')
+                let main = document.getElementById('main')
+                if(ch){
+                  ch.innerHTML = "June , 2023"
+                } 
+                if(main){
+                  main.style.display = 'block'
+                }
+                filterByCategory('monthly')
+                }}><a>Monthly</a></li>
+              <li className={`${selectedCategory === 'weekly' ? 'active' : ''} list-none rounded-lg p-2 cursor-pointer mx-2`} onClick={() => {
+                let ch = document.getElementById('change')
+                let main = document.getElementById('main')
+                if(ch){
+                  ch.innerHTML = "Week 23,2023"
+                }
+                if(main){
+                  main.style.display = 'block'
+                }
+                filterByCategory('weekly')}}><a>Weekly</a></li>
+              <li className={`${selectedCategory === 'daily' ? 'active' : ''} list-none rounded-lg p-2 cursor-pointer mx-2`} onClick={() => {
+                let ch = document.getElementById('change')
+                let main = document.getElementById('main')
+                if(ch){
+                  ch.innerHTML = "June 11,2023"
+                }
+                if(main){
+                  main.style.display = 'block'
+                }
+                filterByCategory('daily')}}><a>Daily</a></li>
+              <li className={`${selectedCategory === 'alltime' ? 'active' : ''} list-none rounded-lg p-2 cursor-pointer mx-2`} onClick={() => {
+                let main = document.getElementById('main')
+                if(main){
+                  main.style.display = 'none'
+                }
+                filterByCategory('alltime')}}><a>All time</a></li>
             </ul>
           </div>
         </div>
