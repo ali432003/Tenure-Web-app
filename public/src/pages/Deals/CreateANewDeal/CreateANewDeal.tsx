@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import Slidebar from '../../../components/Slidebar/Slidebar'
 import OutlinedInput from '@mui/material/OutlinedInput';
@@ -14,6 +14,7 @@ import { Input } from '@mui/joy';
 import styled from '@emotion/styled';
 import CatDetails from '../../../components/CatDetails/CatDetails';
 import { Link } from 'react-router-dom';
+
 
 
 
@@ -41,11 +42,11 @@ const names = [
 
 export default function CreateANewDeal() {
   const navigate = useNavigate(); // Initialize the navigate function
-
-  // Function to navigate to the CatDetails page
-  const navigateToCatDetails = () => {
-    navigate('/CatDetails'); // Replace '/cat-details' with the actual path to your CatDetails page
+  const navigateToDeal = () => {
+    navigate('/Deals'); // Replace '/cat-details' with the actual path to your CatDetails page
   };
+  
+  
 
   const [personName, setPersonName] = React.useState<string[]>([]);
 
@@ -59,6 +60,20 @@ export default function CreateANewDeal() {
     );
   };
 
+  
+  const [isBrandFormVisible, setIsBrandFormVisible] = useState(false);
+  const [isNewDealFormVisible, setIsNewDealFormVisible] = useState(true);
+
+  const toggleBrandForm = () => {
+    setIsBrandFormVisible(!isBrandFormVisible);
+    setIsNewDealFormVisible(!isNewDealFormVisible);
+  };
+  const toggleBackward = () => {
+    setIsBrandFormVisible(!isBrandFormVisible);
+    setIsNewDealFormVisible(!isNewDealFormVisible);
+  };
+  
+
 
   return (
 
@@ -69,7 +84,8 @@ export default function CreateANewDeal() {
           <img src="src/assets/icons/arrow_left.svg" className='mr-4' alt="" />
           <h1>Create new deal</h1>
         </div>
-        <div className='text-start mt-8 ms-4'>
+
+        {isNewDealFormVisible && <div className='text-start mt-8 ms-4'>
           <div className='flex flex-col w-5/6'>
             <h3>Deal availability</h3>
             <p className='my-2' style={{ color: "gray" }}>Select the date range and reach or your deal</p>
@@ -201,15 +217,44 @@ export default function CreateANewDeal() {
               label="Description"
               multiline
               rows={4}
-              sx={{marginTop:2}}
+              sx={{ marginTop: 2 }}
             />
           </div>
           <div className='flex w-5/6 mt-10 justify-between'>
-              <span style={{color:"#38857B" ,fontWeight: "600"}}>Cancel</span>
-              <button onClick={navigateToCatDetails} className='p-2 px-8 ps-4 rounded-lg flex ' style={{backgroundColor: "#38857B", color: "white", fontWeight: "600"}}>Next <img src="src/assets/icons/chevron_right.svg" style={{filter:"brightness(500%)"}}  className='ml-9 absolute' alt="" /></button>
+            <span className="cursor-pointer" style={{ color: "#38857B", fontWeight: "600" }} onClick={navigateToDeal}>Cancel</span>
+            <button onClick={toggleBrandForm} className='p-2 px-8 ps-4 rounded-lg flex ' style={{ backgroundColor: "#38857B", color: "white", fontWeight: "600" }}>Next <img src="src/assets/icons/chevron_right.svg" style={{ filter: "brightness(500%)" }} className='ml-9 absolute' alt="" /></button>
           </div>
-        </div>
 
+        </div>}
+        {isBrandFormVisible && <div className='text-start mt-8 ms-4'>
+          <h1>Brand logo</h1>
+          <p style={{ color: "grey" }} className='my-2'>Select your brand logo</p>
+          <div className='w-5/6'>
+            <div className="w-full my-5 border border-gray-400 border-dashed p-4 rounded-lg text-center">
+              <img src="src/assets/icons/CSV_file.svg" alt="" className='m-auto mb-3' />
+              Upload a CSV file with your employee details
+            </div>
+          </div>
+          <div className='flex flex-col w-5/6'>
+            <h1 className='my-2'>Address</h1>
+            <TextField type="text" sx={{marginY:1}} label='email address'/>
+            <TextField type="text" sx={{marginY:1}} label='city'/>
+            <TextField type="text" sx={{marginY:1}} label='provice'/>
+            <TextField type="text" sx={{marginY:1}} label='postal code'/>
+            <div className='flex justify-end'>
+              <span className='flex'><img src="src\assets\icons\add_1.svg" alt="" className='mr-2'/>Add Another Address</span>
+            </div>
+          </div>
+          <div className='flex justify-between w-5/6 mt-5'>
+            <div>
+              <button onClick={navigateToDeal} style={{ color: "#38857B", fontWeight: "600" }}>cancel</button>
+            </div>
+            <div className='flex'>
+              <button onClick={toggleBackward} className='p-2 ps-5 mx-2 rounded-lg flex '  style={{ border: "1px solid #38857B", color: "#38857B", fontWeight: "600" }}><img src="src\assets\icons\chevron_left.svg" style={{filter:"brightness(200%)"}} alt="" className='-ml-5 absolute' /> Previous</button>
+              <button  className='p-2  rounded-lg' style={{backgroundColor:" #38857B", color: "white", fontWeight: "600" }}>Done</button>
+            </div>
+          </div>
+        </div>}
       </div>
     </div>
   )

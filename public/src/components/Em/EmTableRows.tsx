@@ -72,6 +72,7 @@ export default function EmTableRows(props: any) {
     var shouldShowPurchase;
     var shouldShowReceiver;
     var shouldShowDashRows;
+    var shouldShowWalletRows;
     if (props.rkey === 'main') {
         shouldShowMain = true;
         shouldShowPurchase = false;
@@ -92,6 +93,13 @@ export default function EmTableRows(props: any) {
         shouldShowPurchase = false;
         shouldShowReceiver = false;
         shouldShowDashRows = true;
+    }
+    if (props.rkey === 'Wall') {
+        shouldShowMain = false;
+        shouldShowPurchase = false;
+        shouldShowReceiver = false;
+        shouldShowDashRows = false;
+        shouldShowWalletRows = true;
     }
 
 
@@ -308,6 +316,20 @@ export default function EmTableRows(props: any) {
                                 <img src={`src/assets/icons/${props.catimg}`} alt="" />
                                 <p style={{ color: props.catCol }}>{props.cat}</p>
                             </td>
+                        </tr>
+                    </tbody>
+
+                )
+            }
+            {/* Wallet */}
+            {
+                shouldShowWalletRows && (
+                    <tbody className='gap-x-7 gap-y-7'>
+                        <tr className='bg-white-600 shadow-lg  my-4'>
+                            <td className='p-4 w-1/3'><h5 className='text-start pt-1'>{props.date}</h5></td>
+                            <td style={{ color: '#25384D' }} className='text-md font-bold text-start'>{props.amt}</td>
+                            <td style={{ color: '#25384D' }} className=' text-md w-1/5  text-start'>{props.channel}</td>
+                            <td className='text-start w-1/5'>{props.type}</td>
                         </tr>
                     </tbody>
 
