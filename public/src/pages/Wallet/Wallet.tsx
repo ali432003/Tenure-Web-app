@@ -65,7 +65,7 @@ export default function Wallet(props: any) {
                                     <TextField type="text" label='$ Current budget' sx={{width:1, marginY:1}} />
                                 </div>
                                 <div className='flex justify-center'>
-                                    <button className='p-2 rounded-md cursor-pointer' style={{ backgroundColor: "#38857B", color: "white", fontWeight: "600" }}>Done</button>
+                                    <button className='p-2 rounded-md cursor-pointer' style={{ backgroundColor: "#38857B", color: "white", fontWeight: "600" }}>Send</button>
                                     <button onClick={sendANotCl} className='mx-3 p-2 rounded-md cursor-pointer' style={{ border: "1px solid #38857B", color: "#38857B", fontWeight: "600" }}>Cancel</button>
                                 </div>
                             </Box>
