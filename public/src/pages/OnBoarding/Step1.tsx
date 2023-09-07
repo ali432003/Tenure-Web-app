@@ -1,14 +1,13 @@
 //import React,{useState} from 'react';
 import Button from '../../components/Button/Button';
 import * as yup from 'yup';
-import {  useFormik } from 'formik';
-import {useNavigate } from 'react-router-dom';
-
+import { useFormik } from 'formik';
+import { useNavigate } from 'react-router-dom';
 
 function Step1() {
-//const [validation, setValidation] = useState(false)
+  //const [validation, setValidation] = useState(false)
 
-const navigate = useNavigate();
+  const navigate = useNavigate();
   const formik = useFormik({
     initialValues: {
       fullName: '',
@@ -24,21 +23,19 @@ const navigate = useNavigate();
     }),
     onSubmit: () => {
       //console.log(JSON.stringify(values, null, 2));
-      navigate('/OnBoarding2')
+      navigate('/OnBoarding2');
     },
   });
 
   const companySize = [
-    {value:"1-20",label:"1-20"},
-    {value:"21-40",label:"21-40"},
-    {value:"41-60",label:"41-60"},
-   { value:"61-80",label:"61-80"},
-   { value:"81-99",label:"81-99"},
-   { value:"100+",label:"100+"}
-]
+    { value: '1-20', label: '1-20' },
+    { value: '21-40', label: '21-40' },
+    { value: '41-60', label: '41-60' },
+    { value: '61-80', label: '61-80' },
+    { value: '81-99', label: '81-99' },
+    { value: '100+', label: '100+' },
+  ];
 
-
-  
   return (
     <div className="bg-gray-50 grid grid-cols-1">
       <div className="container min-w-full center pt-48 relative flex flex-col justify-center items-center">
@@ -48,11 +45,7 @@ const navigate = useNavigate();
         </p>
       </div>
       <div>
-        <p
-          className="text-gray-400 mt-5 mx-auto text-right w-1/3 "
-        >
-          Step 1/4
-        </p>
+        <p className="text-gray-400 mt-5 mx-auto text-right w-1/3 ">Step 1/4</p>
       </div>
       <div className="container min-w-full center pt-9 relative flex flex-col justify-center items-center">
         <form className="w-1/3" onSubmit={formik.handleSubmit}>
@@ -93,9 +86,7 @@ const navigate = useNavigate();
           </label>
           <div className="mb-4">
             {formik.touched.role && formik.errors.role ? (
-              <div className="text-start  mb-4 peer-invalid:visible text-danger-500 text-sm">
-                {formik.errors.role}
-              </div>
+              <div className="text-start  mb-4 peer-invalid:visible text-danger-500 text-sm">{formik.errors.role}</div>
             ) : null}
           </div>
           <label className="block">
@@ -128,7 +119,7 @@ const navigate = useNavigate();
               What is your name?
             </h4>
             <div className="relative">
-              <select 
+              <select
                 id="options"
                 className="mb-2 form-input px-4 py-3 w-full border-2 rounded-lg border-solid border-gray-300 focus:border-gray-400 ring-gray-400 visible peer ...  peer-invalid:border-danger-500 focus: border-danger-500"
                 name="options"
@@ -139,9 +130,11 @@ const navigate = useNavigate();
               >
                 <option value="">Select an option</option>
                 <optgroup>
-                {companySize.map(item => 
-                    <option value={item.value} label={item.label}>{item.value}</option>
-                     )} 
+                  {companySize.map((item) => (
+                    <option value={item.value} label={item.label}>
+                      {item.value}
+                    </option>
+                  ))}
                   {/* <option id="opt" value="1-20" label='1-20'>
                     1-20
                   </option>
@@ -177,10 +170,15 @@ const navigate = useNavigate();
               className="button-primary-lg  button mt-7 "
               style={{ borderRadius: '10px', backgroundColor: 'rgb(56 133 123 /1)' }}
             >
-                <span className="contents">
-                  Next &nbsp;<img src="src/assets/icons/chevron_right.svg" style={{ filter: 'brightness(300%)' }} alt="right_arrow"></img>
-                </span>
-              
+              <span className="contents">
+                Next &#9;
+                <img
+                  src="src/assets/icons/chevron_right.svg"
+                  style={{ filter: 'brightness(300%)' }}
+                  alt="right_arrow"
+                ></img>
+              </span>
+
               {/* {
                 Object.keys(formik.errors).length == 0 && 
                 <a href="/OnBoarding2" className="contents">

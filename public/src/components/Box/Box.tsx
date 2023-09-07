@@ -1,9 +1,4 @@
-import React from 'react';
 // import { BarChart } from '@mui/x-charts/BarChart';
-
-
-
-
 
 export default function Box(props: any) {
   return (
@@ -28,15 +23,10 @@ export default function Box(props: any) {
           </div>
         </div>
         <div className="mt-7 w-fit m-auto">
-            Last 6 months
-      {props.chart}
-   
- 
-
-   
+          Last 6 months
+          {props.chart}
         </div>
       </div>
     </div>
   );
 }
-

@@ -11,10 +11,10 @@ interface ComponentProps {
 
 export const Step4_sucess: React.FC<ComponentProps> = ({ title, btnText, show, previousLink, stepNumber }) => {
   const navigate = useNavigate();
-  function onStep2Submit(values: any) {
+  function onStep2Submit(_values: any) {
     navigate('/OnBoarding3');
   }
-  function onStep4Submit(values: any) {
+  function onStep4Submit(_values: any) {
     navigate('/OnBoarding4');
   }
 
@@ -27,11 +27,7 @@ export const Step4_sucess: React.FC<ComponentProps> = ({ title, btnText, show, p
         </p>
       </div>
       <div>
-        <p
-          className="text-gray-400 mt-5 mx-auto text-right w-1/3 "
-        >
-          Step {stepNumber}/4
-        </p>
+        <p className="text-gray-400 mt-5 mx-auto text-right w-1/3 ">Step {stepNumber}/4</p>
       </div>
       <div className="container min-w-full center pt-9 relative flex flex-col justify-center items-center">
         <div className="w-1/3 border-2 rounded-lg border-solid" style={{ borderColor: 'rgb(56 133 123 /1)' }}>
@@ -42,7 +38,7 @@ export const Step4_sucess: React.FC<ComponentProps> = ({ title, btnText, show, p
               padding: '16%',
               marginLeft: '29%',
             }}
-            alt=""
+            alt="asdas"
           />
           <div style={{ transform: 'translateY(-261%)' }}>
             <span className="text-lg font-semibold cursor-pointer " style={{ color: 'rgb(56 133 123 /1)' }}>
@@ -82,8 +78,8 @@ export const Step4_sucess: React.FC<ComponentProps> = ({ title, btnText, show, p
                 src="src/assets/icons/chevron_left.svg"
                 alt=""
                 style={{ maxWidth: 'fit-conteny', display: 'inline', transform: 'translateY(-4px)' }}
-              />{' '}
-              Previous
+              />
+              &#9; Previous
             </a>
           </span>
           {show == true && (
@@ -99,4 +95,3 @@ export const Step4_sucess: React.FC<ComponentProps> = ({ title, btnText, show, p
     </div>
   );
 };
-

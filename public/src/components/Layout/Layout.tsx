@@ -7,19 +7,25 @@ import Slidebar from '../Slidebar/Slidebar';
 // import Reciever from '../../pages/Employees/Reciever/Reciever.tsx';
 // import Purchase from '.././pages/Employees/Purchase/Purchase.tsx';
 // import Purchase from '../../pages/Employees/Purchase/Purchase.tsx';
-import { Route, Routes, } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
+import CatDetails from '../CatDetails/CatDetails';
+import CreateANewDeal from '../../pages/Deals/CreateANewDeal/CreateANewDeal';
 export default function Layout() {
   return (
-    <div  className='h-max' style={{ display: 'flex'}}>
-      <div className='' ><Slidebar /></div>
+    <div className="h-max" style={{ display: 'flex' }}>
+      <div className="">
+        <Slidebar />
+      </div>
       <div style={{ flex: 1, padding: '20px' }}>
-      <Routes>
+        <Routes>
           {/* Remove the nested Routes component from here */}
-          <Route path="/Dashboard" element={<Empty  />} />
+          <Route path="/Dashboard" element={<Empty />} />
           <Route path="/Employees" element={<Employees />} />
           <Route path="/Deals" element={<Deals />} />
           <Route path="/Wallet" element={<Wallet />} />
           <Route path="/Settings" element={<Settings />} />
+          <Route path="/CatDetails" element={<CatDetails />} />
+          <Route path="/CreateANewDeal" element={<CreateANewDeal />} />
         </Routes>
       </div>
     </div>

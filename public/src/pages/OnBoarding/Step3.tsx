@@ -1,4 +1,3 @@
-import React from 'react';
 import Button from '../../components/Button/Button';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
@@ -20,8 +19,8 @@ function Step3() {
           return Number.isInteger(Number(value));
         }),
     }),
-    onSubmit: (values) => {
-      navigate('/OnBoarding4')
+    onSubmit: () => {
+      navigate('/OnBoarding4');
     },
   });
   return (
@@ -33,12 +32,7 @@ function Step3() {
         </p>
       </div>
       <div>
-        <p
-   
-          className="text-gray-400 mt-5 mx-auto text-right w-1/3 "
-        >
-          Step 3/4
-        </p>
+        <p className="text-gray-400 mt-5 mx-auto text-right w-1/3 ">Step 3/4</p>
       </div>
       <div className="container min-w-full center pt-9 relative flex flex-col justify-center items-center">
         <form className="w-1/3" onSubmit={formik.handleSubmit}>
@@ -74,9 +68,14 @@ function Step3() {
               className="button-primary-lg  button mt-7 "
               style={{ borderRadius: '10px', backgroundColor: 'rgb(56 133 123 /1)' }}
             >
-               <span className="contents">
-                  Next &nbsp;<img src="src/assets/icons/chevron_right.svg" style={{ filter: 'brightness(300%)' }} alt="right_arrow"></img>
-                </span>
+              <span className="contents">
+                Next &nbsp;
+                <img
+                  src="src/assets/icons/chevron_right.svg"
+                  style={{ filter: 'brightness(300%)' }}
+                  alt="right_arrow"
+                ></img>
+              </span>
 
               {/* {Object.keys(formik.errors).length > 0 ? (
               <span className="contents">
@@ -89,15 +88,15 @@ function Step3() {
             )} */}
             </Button>
           </div>
-          <div className="flex justify-between">
+          <div className="flex justify-between mt-4">
             <span className="text-lg font-semibold align-bottom cursor-pointer" style={{ color: 'rgb(56 133 123 /1)' }}>
               <a href="/OnBoarding2">
                 <img
                   src="src/assets/icons/chevron_left.svg"
                   alt=""
                   style={{ maxWidth: 'fit-content', display: 'inline', transform: 'translateY(-4px)' }}
-                />{' '}
-                Previous
+                />
+                &#9; Previous
               </a>
             </span>
             <span

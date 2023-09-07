@@ -2,11 +2,11 @@ import { useState } from 'react';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 import Button from '../../components/Button/Button';
-import '../SignUp/SignUp.css'
-interface FormLogin {
-  email: string;
-  password: string;
-}
+import '../SignUp/SignUp.css';
+// interface FormLogin {
+//   email: string;
+//   password: string;
+// }
 
 export default function Login() {
   // const [email, setEmail] = useState('');
@@ -20,7 +20,7 @@ export default function Login() {
   // };
 
   const togglePassword = () => {
-    setTypePassword(prevType => prevType === 'password' ? 'text' : 'password');
+    setTypePassword((prevType) => (prevType === 'password' ? 'text' : 'password'));
     // event.preventDefault();
     // if (typePassword === 'password') {
     //   setTypePassword('text');
@@ -64,9 +64,11 @@ export default function Login() {
               className="mb-2 form-input px-4 py-3 w-96 border-2 rounded-lg border-solid border-gray-300 focus:border-gray-400 ring-gray-400 visible peer ...  peer-invalid:border-danger-500 focus: border-danger-500"
             />
           </label>
-          <div className='mb-4'>
-          {formik.touched.email && formik.errors.email ? (
-              <div className="text-start ml-6 mb-4 peer-invalid:visible text-danger-500 text-sm">{formik.errors.email}</div>
+          <div className="mb-4">
+            {formik.touched.email && formik.errors.email ? (
+              <div className="text-start ml-6 mb-4 peer-invalid:visible text-danger-500 text-sm">
+                {formik.errors.email}
+              </div>
             ) : null}
           </div>
           <label className="block">
@@ -89,19 +91,23 @@ export default function Login() {
                 )}
               </button>
             </div>
-
-
           </label>
-          <div className='mb-4'>
-          {formik.touched.password && formik.errors.password ? (
-              <div className="text-start ml-6 mb-4 peer-invalid:visible text-danger-500 text-sm">{formik.errors.password}</div>
+          <div className="mb-4">
+            {formik.touched.password && formik.errors.password ? (
+              <div className="text-start ml-6 mb-4 peer-invalid:visible text-danger-500 text-sm">
+                {formik.errors.password}
+              </div>
             ) : null}
           </div>
           <a href="/ForgetPassword" className="mb-2 pr-6 float-right">
-              <span className="relative font-semibold text-primary-500"> Forgot Password?</span>
-            </a>
+            <span className="relative font-semibold text-primary-500"> Forgot Password?</span>
+          </a>
           <div className="px-5">
-            <Button type="submit" className="button-primary-lg center button"  style={{borderRadius:'10px', backgroundColor:"rgb(56 133 123 /1)"}}>
+            <Button
+              type="submit"
+              className="button-primary-lg center button"
+              style={{ borderRadius: '10px', backgroundColor: 'rgb(56 133 123 /1)' }}
+            >
               Login
             </Button>
           </div>

@@ -1,6 +1,6 @@
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 import Tippy from '@tippyjs/react';
-import Button from '../Button/Button';
+
 import 'tippy.js/dist/tippy.css';
 import 'tippy.js/animations/scale.css';
 import './style.css';
@@ -9,6 +9,7 @@ import { styled, Box, Theme } from '@mui/system';
 import { Modal } from '@mui/base/Modal';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
+import { useNavigate } from 'react-router-dom';
 
 const SaveGoals = () => {
   //div which shows by hover on the save-goals
@@ -74,6 +75,8 @@ const SaveGoals = () => {
 };
 
 export default function EmTableRows(props: any) {
+  let navigate = useNavigate();
+
   // save goals div hover
   const [isHovered, setIsHovered] = useState(false);
 
@@ -140,7 +143,7 @@ export default function EmTableRows(props: any) {
           return Number.isInteger(Number(value));
         }),
     }),
-    onSubmit: (values, { resetForm }) => {
+    onSubmit: (_values, { resetForm }) => {
       resetForm();
       handleClose();
     },
@@ -564,8 +567,11 @@ export default function EmTableRows(props: any) {
         </tbody>
       )}
       {shouldShowDealsRows && (
-        <tbody className="gap-x-7 gap-y-7"> 
-          <tr className="bg-white-600 shadow-lg rounded-xl mt-4  transition-colors hover:bg-yellow-500 ">
+        <tbody className="gap-x-7 gap-y-7">
+          <tr
+            className="bg-white-600 shadow-lg rounded-xl mt-4  transition-colors hover:bg-yellow-500 "
+            onClick={() => navigate('/CatDetails')}
+          >
             <td className=" p-4 w-1/3">
               <img src={`src/assets/icons/${props.img}`} className="mr-3" alt="" />
               <h5 className="text-start pt-1">{props.brand}</h5>
