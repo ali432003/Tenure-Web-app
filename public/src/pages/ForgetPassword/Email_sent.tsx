@@ -1,12 +1,13 @@
+import { Link } from 'react-router-dom';
 import Button from '../../components/Button/Button';
 
 function Email_sent() {
   return (
     <div className="bg-gray-50 grid grid-cols-1">
-      <div className="">
-        <a href="/Login">
+      <div className="w-11/12 m-auto">
+        <Link to="/">
           <img src="src/assets/icons/arrow_left.svg" alt="" className="mt-5 text-primary-500" />
-        </a>
+        </Link>
       </div>
       <div className="container min-w-full center  relative flex flex-col justify-center items-center">
         <img className="w-84 mb-1" src="src/assets/images/Frame 807-2.png" alt="" />

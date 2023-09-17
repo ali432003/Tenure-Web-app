@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Button from '../../components/Button/Button';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const validationSchema = yup.object().shape({
   password: yup
@@ -39,10 +39,10 @@ function ResetPassword() {
 
   return (
     <div className="bg-gray-50 grid grid-cols-1">
-      <div>
-        <a href="/ForgetPassword">
+      <div className='w-11/12 m-auto'>
+        <Link to="/ForgetPassword">
           <img src="src/assets/icons/arrow_left.svg" alt="" className="mt-5 text-primary-500" />
-        </a>
+        </Link>
       </div>
       <div className="container min-w-full center pt-18 relative flex flex-col justify-center items-center">
         <img className="w-72" src="src/assets/images/lock.png" alt="" />
@@ -87,7 +87,7 @@ function ResetPassword() {
           ) : null}
         </div> */}
           <div className="mb-9">
-            <div style={{ display: 'flex', justifyContent: 'space-evenly', width: '70%' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-evenly', width: '37%' }}>
               <div>
                 <ul>
                   <li className={`${formik.errors.password == 'min error' ? 'text-danger-500' : ''}`}>

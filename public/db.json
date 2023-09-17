@@ -1,0 +1,47 @@
+{
+    "wallet":[
+        {
+            "id":1,
+            "Date & Time":"09/11/23, 12:55pm EST",
+            "Amount":"$4000",
+            "Payment channel":"credit card",
+            "Transaction Type":"Top up"
+        }
+        ,
+        {
+            "id":2,
+            "Date & Time":"09/11/23, 12:55pm EST",
+            "Amount":"$4000",
+            "Payment channel":"credit card",
+            "Transaction Type":"Top up"
+        },
+        {
+            "id":3,
+            "Date & Time":"10/11/23, 12:55pm EST",
+            "Amount":"$4000",
+            "Payment channel":"credit card",
+            "Transaction Type":"Top up"
+        },
+        {
+            "id":4,
+            "Date & Time":"09/20/23, 12:55pm EST",
+            "Amount":"$4000",
+            "Payment channel":"credit card",
+            "Transaction Type":"Top up"
+        },
+        {
+            "id":5,
+            "Date & Time":"09/05/23, 12:55pm EST",
+            "Amount":"$4000",
+            "Payment channel":"credit card",
+            "Transaction Type":"Top up"
+        },
+        {
+            "id":6,
+            "Date & Time":"09/12/23, 12:55pm EST",
+            "Amount":"$4000",
+            "Payment channel":"credit card",
+            "Transaction Type":"Top up"
+        }
+    ]
+}

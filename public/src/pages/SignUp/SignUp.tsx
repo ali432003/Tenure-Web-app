@@ -3,6 +3,7 @@ import { useFormik } from 'formik';
 import * as yup from 'yup';
 import Button from '../../components/Button/Button';
 import './SignUp.css';
+import { Link, useNavigate } from 'react-router-dom';
 
 const validationSchema = yup.object().shape({
   email: yup.string().email('Email invalid').required('email is required.'),
@@ -24,7 +25,7 @@ export default function SignUp() {
   const [typePassword, setTypePassword] = useState('password');
 
   //const passwordPattern = /^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,20}$/;
-
+  let navigate = useNavigate()
   const togglePassword = () => {
     setTypePassword((prevType) => (prevType === 'password' ? 'text' : 'password'));
   };
@@ -45,8 +46,8 @@ export default function SignUp() {
       password: '',
     },
     validationSchema: validationSchema,
-    onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
+    onSubmit: (_values) => {
+      navigate('/onBoarding1')
     },
   });
   console.log(formik.errors.password);
@@ -151,9 +152,9 @@ export default function SignUp() {
       <div className="container min-w-full center relative flex flex-col justify-center items-center">
         <blockquote className="body-text-medium blockquote-form text-gray-500">
           Already have an account?
-          <a href="/Login">
+          <Link to="/Login">
             <span className="relative font-semibold text-primary-500"> Login</span>
-          </a>
+          </Link>
         </blockquote>
       </div>
     </div>

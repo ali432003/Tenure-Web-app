@@ -5,8 +5,10 @@ import EmTableRows from '../../components/Em/EmTableRows';
 // import { Link } from 'react-router-dom';
 // import CreateANewDeal from './CreateANewDeal/CreateANewDeal';
 import {Employeedeals,Employerdeals,Createdbyyou,Allcategories,Food,Travel,Healthcare,Retail,ProfessionalDevelopment ,localbuisness, Financialservices ,Gadgets ,Communitypartnerships, CreateANewDeal } from '../../en.json'
+import { useNavigate } from 'react-router-dom';
 
 export default function Deals() {
+  let navigate = useNavigate()
   const filterByCategory = (category: string) => {
     setSelectedCategory(category);
   };
@@ -76,9 +78,9 @@ export default function Deals() {
   };
   const EmployeeDealData = [
     {
-      img: '',
-      catimg: '',
-      catcol: '',
+      img: 'health_fit.svg',
+      catimg: 'healthcare.svg',
+      catcol: '#972144',
       id: 1,
       brand: 'Health Fit',
       offerTitle: '20% off annual gym memberships',
@@ -86,9 +88,9 @@ export default function Deals() {
       category: 'Health-care',
     },
     {
-      img: '',
-      catimg: '',
-      catcol: '',
+      img: 'gap.svg',
+      catimg: 'retail.svg',
+      catcol: '#004E5F',
       id: 2,
       brand: 'Gap',
       offerTitle: 'Buy one, get one 50% off on selected fashion items',
@@ -96,9 +98,9 @@ export default function Deals() {
       category: 'Retail',
     },
     {
-      img: '',
-      catimg: '',
-      catcol: '',
+      img: 'starbucks.svg',
+      catimg: 'food.svg',
+      catcol: '#DA6252',
       id: 3,
       brand: 'Starbucks',
       offerTitle: 'Visit two times and save 5%',
@@ -106,9 +108,9 @@ export default function Deals() {
       category: 'Food',
     },
     {
-      img: '',
-      catimg: '',
-      catcol: '',
+      img: 'make_my_trip.svg',
+      catimg: 'travel.svg',
+      catcol: '#B77900',
       id: 4,
       brand: 'MakeMytrip',
       offerTitle: '50% off a 5-day All-inclusive Caribbean cruise',
@@ -116,9 +118,9 @@ export default function Deals() {
       category: 'Travel',
     },
     {
-      img: '',
-      catimg: '',
-      catcol: '',
+      img: 'health_fit.svg',
+      catimg: 'healthcare.svg',
+      catcol: '#972144',
       id: 5,
       brand: 'Health Fit',
       offerTitle: '10% off personal training sessions',
@@ -126,9 +128,9 @@ export default function Deals() {
       category: 'Health-care',
     },
     {
-      img: '',
-      catimg: '',
-      catcol: '',
+      img: 'gap.svg',
+      catimg: 'retail.svg',
+      catcol: '#004E5F',
       id: 6,
       brand: 'Gap',
       offerTitle: 'Free shipping on all orders',
@@ -136,9 +138,9 @@ export default function Deals() {
       category: 'Retail',
     },
     {
-      img: '',
-      catimg: '',
-      catcol: '',
+      img: 'starbucks.svg',
+      catimg: 'food.svg',
+      catcol: '#DA6252',
       id: 7,
       brand: 'Starbucks',
       offerTitle: 'Buy one, get one free on espresso drinks',
@@ -146,9 +148,9 @@ export default function Deals() {
       category: 'Food',
     },
     {
-      img: '',
-      catimg: '',
-      catcol: '',
+      img: 'make_my_trip.svg',
+      catimg: 'travel.svg',
+      catcol: '#B77900',
       id: 8,
       brand: 'MakeMytrip',
       offerTitle: '25% off a luxury beachfront resort stay',
@@ -162,9 +164,9 @@ export default function Deals() {
 
   const EmployerDealData = [
     {
-      img: '',
-      catimg: '',
-      catcol: '',
+      img: 'health_fit.svg',
+      catimg: 'healthcare.svg',
+      catcol: '#972144',
       id: 1,
       brand: 'Health Fit',
       offerTitle: '20% off annual gym memberships',
@@ -222,9 +224,9 @@ export default function Deals() {
       category: 'Financial Services',
     },
     {
-      img: '',
-      catimg: '',
-      catcol: '',
+      img: 'make_my_trip.svg',
+      catimg: 'travel.svg',
+      catcol: '#B77900',
       id: 7,
       brand: 'MakeMytrip',
       offerTitle: '50% off a 5-day All-inclusive Caribbean cruise',
@@ -232,9 +234,9 @@ export default function Deals() {
       category: 'Travel',
     },
     {
-      img: '',
-      catimg: '',
-      catcol: '',
+      img: 'health_fit.svg',
+      catimg: 'healthcare.svg',
+      catcol: '#972144',
       id: 8,
       brand: 'Health Fit',
       offerTitle: '20% off annual gym memberships',
@@ -292,9 +294,9 @@ export default function Deals() {
       category: 'Financial Services',
     },
     {
-      img: '',
-      catimg: '',
-      catcol: '',
+      img: 'make_my_trip.svg',
+      catimg: 'travel.svg',
+      catcol: '#B77900',
       id: 14,
       brand: 'MakeMytrip',
       offerTitle: '50% off a 5-day All-inclusive Caribbean cruise',
@@ -302,9 +304,9 @@ export default function Deals() {
       category: 'Travel',
     },
     {
-      img: '',
-      catimg: '',
-      catcol: '',
+      img: 'health_fit.svg',
+      catimg: 'healthcare.svg',
+      catcol: '#972144',
       id: 15,
       brand: 'Health Fit',
       offerTitle: '20% off annual gym memberships',
@@ -362,9 +364,9 @@ export default function Deals() {
       category: 'Financial Services',
     },
     {
-      img: '',
-      catimg: '',
-      catcol: '',
+      img: 'make_my_trip.svg',
+      catimg: 'travel.svg',
+      catcol: '#B77900',
       id: 21,
       brand: 'MakeMytrip',
       offerTitle: '50% off a 5-day All-inclusive Caribbean cruise',
@@ -378,9 +380,9 @@ export default function Deals() {
 
   const DealsCreated = [
     {
-      img: '',
-      catimg: '',
-      catcol: '',
+      img: 'health_fit.svg',
+      catimg: 'healthcare.svg',
+      catcol: '#972144',
       id: 1,
       brand: 'Health Fit',
       offerTitle: '20% off annual gym memberships',
@@ -388,9 +390,9 @@ export default function Deals() {
       category: 'Health-care',
     },
     {
-      img: '',
-      catimg: '',
-      catcol: '',
+      img: 'health_fit.svg',
+      catimg: 'healthcare.svg',
+      catcol: '#972144',
       id: 2,
       brand: 'Health Fit',
       offerTitle: '20% off annual gym memberships',
@@ -398,9 +400,9 @@ export default function Deals() {
       category: 'Health-care',
     },
     {
-      img: '',
-      catimg: '',
-      catcol: '',
+      img: 'health_fit.svg',
+      catimg: 'healthcare.svg',
+      catcol: '#972144',
       id: 3,
       brand: 'Health Fit',
       offerTitle: '20% off annual gym memberships',
@@ -531,6 +533,7 @@ export default function Deals() {
             className="p-2 rounded-lg"
             style={{ display: 'none', backgroundColor: '#38857b', color: 'white' }}
             id="cus"
+            onClick={() => navigate('/CreateANewDeal')}
           >
             <img src="src/assets/icons/add_2.svg" className="mr-2" />
             {CreateANewDeal}

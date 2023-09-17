@@ -44,7 +44,7 @@ function Step2() {
               <img src="src/assets/icons/upload.svg" alt="" className="m-auto mb-3" />
               Upload a CSV file with your employee details
             </div>
-
+   
             <Formik
               initialValues={initialValues}
               validationSchema={validationSchema}

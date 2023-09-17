@@ -1,9 +1,6 @@
 import { useState } from 'react';
 import './Emty.css';
-// import Button from '../../components/Button/Button';
-
 import Box from '../../components/Box/Box';
-// import  EmTableRowsD from '../../components/EmTableRows/EmTableRowsD';
 import { Line, LineChart, Tooltip, XAxis, BarChart, Bar } from 'recharts';
 import { ChartHoverBox } from '../../components/Charthoverbox/ChartHoverBox';
 
@@ -95,7 +92,7 @@ function Empty() {
   ];
 
   return (
-    <div className="rightSide w-full h-full ">
+    <div className="rightSide w-full h-min-screen ">
       <div className="flex items-center justify-between text-start ms-9 mt-5">
         <h1>{WelcomeJon}</h1>
       </div>

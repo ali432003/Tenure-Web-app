@@ -3,6 +3,7 @@ import { useFormik } from 'formik';
 import * as yup from 'yup';
 import Button from '../../components/Button/Button';
 import '../SignUp/SignUp.css';
+import { useNavigate } from 'react-router-dom';
 // interface FormLogin {
 //   email: string;
 //   password: string;
@@ -13,7 +14,7 @@ export default function Login() {
   // const [password, setPassword] = useState('');
   // const [formData, setFormData] = useState('');
   const [typePassword, setTypePassword] = useState('password');
-
+  let navigate = useNavigate()
   // const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
   //   event.preventDefault();
   //   setPassword(event.target.value);
@@ -39,8 +40,8 @@ export default function Login() {
       email: yup.string().email('Email invalid').required('Your email is required'),
       password: yup.string().required('Your password is required'),
     }),
-    onSubmit: (values) => {
-      console.log(JSON.stringify(values, null, 2));
+    onSubmit: (_values) => {
+      navigate('/Dashboard')
     },
   });
 

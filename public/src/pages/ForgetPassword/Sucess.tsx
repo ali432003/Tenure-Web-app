@@ -1,15 +1,8 @@
-import React from 'react'
-import { useState } from 'react';
 import { Link } from "react-router-dom";
-import * as yup from 'yup';
 import Button from '../../components/Button/Button';
 
-
-
 function Sucess() {
-
     return (
-
         <div className="bg-gray-50 grid grid-cols-1">
 
             <div className="container min-w-full center  relative flex flex-col justify-center items-center">
@@ -24,7 +17,7 @@ function Sucess() {
                     
                     <div className="">
                         <Button type="submit" className="button-primary-lg  button mb-11" style={{ borderRadius: '10px'}}>
-                          <Link to="/login">Login</Link>  
+                          <Link to="/">Login</Link>  
                         </Button>
                     </div>
                 </div>

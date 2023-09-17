@@ -1,7 +1,7 @@
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 import Button from '../../components/Button/Button';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 function ForgetPassword() {
   const navigate = useNavigate();
@@ -18,10 +18,10 @@ function ForgetPassword() {
   });
   return (
     <div className="bg-gray-50 grid grid-cols-1">
-      <div>
-        <a href="/Login">
+      <div className='w-11/12 m-auto'>
+        <Link to="/">
           <img src="src/assets/icons/arrow_left.svg" alt="" className="mt-5 text-primary-500" />
-        </a>
+        </Link>
       </div>
       <div className="container min-w-full center pt-18 relative flex flex-col justify-center items-center">
         <img className="w-72" src="src/assets/images/lock.png" alt="" />
@@ -67,9 +67,9 @@ function ForgetPassword() {
         <div className="container min-w-full center relative flex flex-col justify-center items-center mt-5">
           <blockquote className="body-text-medium blockquote-form text-gray-500">
             Back to
-            <a href="/Login">
+            <Link to="/">
               <span className="relative font-semibold text-primary-500"> Login</span>
-            </a>
+            </Link>
           </blockquote>
         </div>
 

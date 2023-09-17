@@ -15,7 +15,7 @@ export const Step4_sucess: React.FC<ComponentProps> = ({ title, btnText, show, p
     navigate('/OnBoarding3');
   }
   function onStep4Submit(_values: any) {
-    navigate('/OnBoarding4');
+    navigate('/Dashboard');
   }
 
   return (
@@ -33,7 +33,7 @@ export const Step4_sucess: React.FC<ComponentProps> = ({ title, btnText, show, p
         <div className="w-1/3 border-2 rounded-lg border-solid" style={{ borderColor: 'rgb(56 133 123 /1)' }}>
           <img
             src="src/assets/icons/check_filled_1.svg"
-            width={'250px'}
+            width={'45%'}
             style={{
               padding: '16%',
               marginLeft: '29%',

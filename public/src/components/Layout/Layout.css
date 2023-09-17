@@ -1,0 +1,14 @@
+.wholePage{
+    display: grid;
+    grid-template-areas: 'sidebar rightSide';
+    grid-template-columns: 1.4fr 8fr;
+    height: 100%;
+}
+.leftSide{
+    grid-area: sidebar;
+    height: 100%;
+  }
+.rightSide{
+    grid-area: rightSide;
+
+}

@@ -1,4 +1,4 @@
-import { Route, BrowserRouter as Router, Routes,useLocation } from 'react-router-dom';
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import './App.css';
 // import Layout from './components/Layout/Layout';
 // import { SplashScreen } from './pages/IntroScreens/SpashScreen';
@@ -23,7 +23,7 @@ export default function App() {
     <Router>
       <Routes>
         <Route path="/SignUp" element={<SignUp />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/" element={<Login />} />
         <Route path="/ForgetPassword" element={<Forgetpassword />} />
         <Route path="/EmailSent" element={<Email_sent />} />
         <Route path="/ResetPassword" element={<ResetPassword />} />

@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import Tippy from '@tippyjs/react';
-
 import 'tippy.js/dist/tippy.css';
 import 'tippy.js/animations/scale.css';
 import './style.css';
@@ -86,16 +85,16 @@ export default function EmTableRows(props: any) {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-    // Remove modal
-    const [open2, setOpen2] = useState(false);
-    const handleOpen2 = () => setOpen2(true);
-    const handleClose2 = () => setOpen2(false);
+  // Remove modal
+  const [open2, setOpen2] = useState(false);
+  const handleOpen2 = () => setOpen2(true);
+  const handleClose2 = () => setOpen2(false);
 
   var shouldShowMain;
   var shouldShowPurchase;
   var shouldShowReceiver;
   var shouldShowDashRows;
-    var shouldShowWalletRows;
+  var shouldShowWalletRows;
   var shouldShowDealsRows;
   if (props.rkey === 'main') {
     shouldShowMain = true;
@@ -118,13 +117,13 @@ export default function EmTableRows(props: any) {
     shouldShowReceiver = false;
     shouldShowDashRows = true;
   }
-    if (props.rkey === 'Wall') {
-        shouldShowMain = false;
-        shouldShowPurchase = false;
-        shouldShowReceiver = false;
-        shouldShowDashRows = false;
-        shouldShowWalletRows = true;
-    }
+  if (props.rkey === 'Wall') {
+    shouldShowMain = false;
+    shouldShowPurchase = false;
+    shouldShowReceiver = false;
+    shouldShowDashRows = false;
+    shouldShowWalletRows = true;
+  }
   if (props.rkey === 'DealsTable') {
     shouldShowMain = false;
     shouldShowPurchase = false;
@@ -234,7 +233,7 @@ export default function EmTableRows(props: any) {
       {/* main */}
       {shouldShowMain && (
         <tbody className="gap-x-7 gap-y-7">
-          <tr className="bg-white-600 shadow-lg  my-4">
+          <tr className="bg-white-600 shadow-lg  mt-4">
             <td className="flex p-4">
               <img src={`src/assets/icons/${props.img}`} className="mr-3" alt="" />
               <h5 className="text-start pt-1 cursor-pointer">{props.name}</h5>
@@ -284,76 +283,138 @@ export default function EmTableRows(props: any) {
             </td>
           </tr>
 
-                    <StyledModal
-                        aria-labelledby="unstyled-modal-title"
-                        aria-describedby="unstyled-modal-description"
-                        open={open}
-                        onClose={handleClose}
-                        slots={{ backdrop: StyledBackdrop }}
+          <StyledModal
+            aria-labelledby="unstyled-modal-title"
+            aria-describedby="unstyled-modal-description"
+            open={open}
+            onClose={handleClose}
+            slots={{ backdrop: StyledBackdrop }}
+          >
+            <Box sx={style}>
+              <div className="py-4">
+                <div className="flex justify-between text-start">
+                  <h2 id="unstyled-modal-title">Make a Contribution</h2>
+                  <img src="src/assets/icons/cross69.svg" onClick={handleClose} className="cursor-pointer" alt="" />
+                </div>
+                <div id="unstyled-modal-description" className=" mt-9">
+                  <h4 className="my-2">Choose a recipient</h4>
+                  <form onSubmit={formik.handleSubmit}>
+                    <select
+                      name="recipientOptions"
+                      id="recipientOptions"
+                      className="w-full rounded-md"
+                      value={formik.values.recipientOptions}
+                      onChange={formik.handleChange}
+                      onBlur={formik.handleBlur}
                     >
-                        <Box sx={style}>
-                            <div className='py-4'>
-                                <div className='flex justify-between text-start'>
-                                    <h2 id="unstyled-modal-title">Make a Contribution</h2>
-                                    <img src="src/assets/icons/cross69.svg" onClick={handleClose} className='cursor-pointer' alt="" />
-                                </div>
-                                <div id="unstyled-modal-description" className=' mt-9'>
-                                    <h4 className='my-2'>Choose a recipient</h4>
-                                    <select name="" id="" className='w-full rounded-md'>
-                                        <option value="">Jon Snow</option>
-                                        <option value="">Vinn Isuis</option>
-                                        <option value="">Rodd Rigo</option>
-                                        <option value="">Sam Anther</option>
-                                        <option value="">Eden Garden</option>
-                                    </select>
-                                    <h4 className='my-2'>Select a goal</h4>
-                                    <select name="" id="" className='w-full rounded-md'>
-                                        <option value="">Select an option</option>
-                                        <option value="">New Car</option>
-                                        <option value="">First Home</option>
-                                        <option value="">Vacation</option>
-                                        <option value="">Chirstmas Show</option>
-                                    </select>
-                                    <h4 className='mt-2'>Amount to contribute</h4>
-                                    <p className='mb-1'>Wallet balance:{"$3,000"}</p>
-                                    <input type="text" className='w-full rounded-md mb-5' placeholder='enter an amount' />
-                                    <div className='flex place-content-center mt-4'>
-                                        <button className='p-2 rounded-md' style={{ backgroundColor: "#38857B", color: "white", fontWeight: "600" }}>Contribute</button>
-                                        <button onClick={handleClose} className='mx-2 rounded-md p-2' style={{ border: "1px solid #38857B", color: "#38857B", fontWeight: "600" }}>Cancel</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </Box>
-                    </StyledModal>
-                    <StyledModal
-                        aria-labelledby="unstyled-modal-title"
-                        aria-describedby="unstyled-modal-description"
-                        open={open2}
-                        onClose={handleClose2}
-                        slots={{ backdrop: StyledBackdrop }}
+                      <optgroup>
+                        {recipientOptions.map((item) => (
+                          <option value={item.value} label={item.label}>
+                            {item.value}
+                          </option>
+                        ))}
+                      </optgroup>
+                    </select>
+                    <h4 className="my-2">Select a goal</h4>
+                    <select
+                      name="goalOptions"
+                      id="goalOptions"
+                      className="w-full rounded-md"
+                      value={formik.values.goalOptions}
+                      onChange={formik.handleChange}
+                      onBlur={formik.handleBlur}
                     >
-                        <Box sx={style2}>
-                            <div className='py-4'>
-                                <div className='flex justify-end'>
-                                    <img src="src/assets/icons/cross69.svg" onClick={handleClose2} className='cursor-pointer' alt="" />
-                                </div>
-                                <p className='text-center mt-6 mb-2' style={{ color: "#25384D" }}>Are you sure you want to delete this employee?</p>
-                                <div className='flex place-content-center mt-4'>
-                                    <button className='p-2 rounded-md' style={{ border: "1px solid #D24252", color: "#D24252", fontWeight: "600" }}>Yes, remove</button>
-                                    <button onClick={handleClose2} className='mx-2 rounded-md p-2' style={{ backgroundColor: "#38857B", color: "#FFFFFF", fontWeight: "600" }}>No, don’t remove</button>
-                                </div>
-                            </div>
-                        </Box>
-                    </StyledModal>
-                </tbody >
-
-            )
-            }
+                      <option value="">Select an option</option>
+                      <optgroup>
+                        {goalOptions.map((item) => (
+                          <option value={item.value} label={item.label}>
+                            {item.value}
+                          </option>
+                        ))}
+                      </optgroup>
+                    </select>
+                    {formik.touched.goalOptions && formik.errors.goalOptions ? (
+                      <div className="text-start  mb-4 peer-invalid:visible text-danger-500 text-sm">
+                        {formik.errors.goalOptions}
+                      </div>
+                    ) : null}
+                    <h4 className="mt-2">Amount to contribute</h4>
+                    <p className="mb-1">Wallet balance:{'$3,000'}</p>
+                    <input
+                      name="amount"
+                      value={formik.values.amount}
+                      onChange={formik.handleChange}
+                      onBlur={formik.handleBlur}
+                      type="text"
+                      className="w-full rounded-md mb-1"
+                      placeholder="enter an amount"
+                    />
+                    {formik.touched.amount && formik.errors.amount ? (
+                      <div className="text-start  mb-4 peer-invalid:visible text-danger-500 text-sm">
+                        {formik.errors.amount}
+                      </div>
+                    ) : null}
+                    <div className="flex place-content-center mt-4">
+                      <button
+                        type="submit"
+                        className="p-2 rounded-md"
+                        style={{ backgroundColor: '#38857B', color: 'white', fontWeight: '600' }}
+                      >
+                        Contribute
+                      </button>
+                      <button
+                        onClick={handleClose}
+                        className="mx-2 rounded-md p-2"
+                        style={{ border: '1px solid #38857B', color: '#38857B', fontWeight: '600' }}
+                      >
+                        Cancel
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </Box>
+          </StyledModal>
+          <StyledModal
+            aria-labelledby="unstyled-modal-title"
+            aria-describedby="unstyled-modal-description"
+            open={open2}
+            onClose={handleClose2}
+            slots={{ backdrop: StyledBackdrop }}
+          >
+            <Box sx={style2}>
+              <div className="py-4">
+                <div className="flex justify-end">
+                  <img src="src/assets/icons/cross69.svg" onClick={handleClose2} className="cursor-pointer" alt="" />
+                </div>
+                <p className="text-center mt-6 mb-2" style={{ color: '#25384D' }}>
+                  Are you sure you want to delete this employee?
+                </p>
+                <div className="flex place-content-center mt-4">
+                  <button
+                    className="p-2 rounded-md"
+                    style={{ border: '1px solid #D24252', color: '#D24252', fontWeight: '600' }}
+                  >
+                    Yes, remove
+                  </button>
+                  <button
+                    onClick={handleClose2}
+                    className="mx-2 rounded-md p-2"
+                    style={{ backgroundColor: '#38857B', color: '#FFFFFF', fontWeight: '600' }}
+                  >
+                    No, don’t remove
+                  </button>
+                </div>
+              </div>
+            </Box>
+          </StyledModal>
+        </tbody>
+      )}
 
       {/* Receiver Rows */}
       {shouldShowReceiver && (
         <tbody className="gap-x-7 gap-y-7">
-          <tr className="bg-white-600 shadow-lg  my-4">
+          <tr className="bg-white-600 shadow-lg  mt-4">
             <td className="flex p-4">
               <img src={`src/assets/icons/${props.img}`} className="mr-3" alt="" />
               <h5 className="text-start pt-1">{props.name}</h5>
@@ -525,7 +586,7 @@ export default function EmTableRows(props: any) {
       {/* Purchase Rows */}
       {shouldShowPurchase && (
         <tbody className="gap-x-7 gap-y-7">
-          <tr className="bg-white-600 shadow-lg  my-4">
+          <tr className="bg-white-600 shadow-lg  mt-4">
             <td className="flex p-4 w-1/3">
               <img src={`src/assets/icons/${props.img}`} className="mr-3" alt="" />
               <h5 className="text-start pt-1">{props.name}</h5>
@@ -553,7 +614,7 @@ export default function EmTableRows(props: any) {
       {/* Dashboard */}
       {shouldShowDashRows && (
         <tbody className="gap-x-7 gap-y-7">
-          <tr className="bg-white-600 shadow-lg  my-4">
+          <tr className="bg-white-600 shadow-lg  mt-4">
             <td className="flex p-4 w-1/3">
               <img src={`src/assets/icons/${props.img}`} className="mr-3" alt="" />
               <h5 className="text-start pt-1">{props.name}</h5>
@@ -577,7 +638,7 @@ export default function EmTableRows(props: any) {
             className="bg-white-600 shadow-lg rounded-xl mt-4  transition-colors hover:bg-yellow-500 "
             onClick={() => navigate('/CatDetails')}
           >
-            <td className=" p-4 w-1/3">
+            <td className="flex p-4 w-1/3">
               <img src={`src/assets/icons/${props.img}`} className="mr-3" alt="" />
               <h5 className="text-start pt-1">{props.brand}</h5>
             </td>
@@ -587,7 +648,7 @@ export default function EmTableRows(props: any) {
             <td style={{ color: '#25384D' }} className=" text-md   text-start">
               {props.expirydate}
             </td>
-            <td className="text-start">
+            <td className="flex text-start">
               <img src={`src/assets/icons/${props.catimg}`} alt="" />
               <p style={{ color: props.catcol }}>{props.category}</p>
             </td>
@@ -612,9 +673,10 @@ export default function EmTableRows(props: any) {
               <p style={{ color: props.catcol }}>{props.category}</p>
             </td>
             <td className="flex justify-center">
-              <Tippy content={<span>Edit Deal</span>} placement="bottom" animation="scale">
+              <Tippy content={<span>Edit Deal</span>} placement="bottom" animation="scale" >
                 <a
-                  onClick={handleOpen}
+                
+                  onClick={()=>navigate('/EditDeal')}
                   className="rounded me-3 button cursor-pointer"
                   style={{ backgroundColor: 'rgba(28, 92, 95, 1)' }}
                 >
@@ -739,20 +801,23 @@ export default function EmTableRows(props: any) {
           </StyledModal>
         </tbody>
       )}
-       {/* Wallet */}
-       {
-                shouldShowWalletRows && (
-                    <tbody className='gap-x-7 gap-y-7'>
-                        <tr className='bg-white-600 shadow-lg  my-4'>
-                            <td className='p-4 w-1/3'><h5 className='text-start pt-1'>{props.date}</h5></td>
-                            <td style={{ color: '#25384D' }} className='text-md font-bold text-start'>{props.amt}</td>
-                            <td style={{ color: '#25384D' }} className=' text-md w-1/5  text-start'>{props.channel}</td>
-                            <td className='text-start w-1/5'>{props.type}</td>
-                        </tr>
-                    </tbody>
-
-                )
-            }
+      {/* Wallet */}
+      {shouldShowWalletRows && (
+        <tbody className="gap-x-7 gap-y-7">
+          <tr className="bg-white-600 shadow-lg  my-4">
+            <td className="p-4 w-1/3">
+              <h5 className="text-start pt-1">{props.date}</h5>
+            </td>
+            <td style={{ color: '#25384D' }} className="text-md font-bold text-start">
+              {props.amt}
+            </td>
+            <td style={{ color: '#25384D' }} className=" text-md w-1/5  text-start">
+              {props.channel}
+            </td>
+            <td className="text-start w-1/5">{props.type}</td>
+          </tr>
+        </tbody>
+      )}
     </>
   );
 }
